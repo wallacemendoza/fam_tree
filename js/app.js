@@ -171,14 +171,16 @@
       const parentXs = presentParents.map((p) => LEFT_PAD + p.x * X_SPACING + CARD_W / 2);
       const junctionX = parentXs.reduce((a, b) => a + b, 0) / parentXs.length;
       const junctionY = parentRowY + (childY - parentRowY) * 0.4;
+      const isAdopted = e.adoptionStatus === "adopted";
+      const edgeClass = isAdopted ? "edge-parent edge-adopted" : "edge-parent";
 
       parentXs.forEach((px) => {
         const midY = parentRowY + (junctionY - parentRowY) * 0.55;
-        lines += `<path d="M ${px} ${parentRowY} C ${px} ${midY}, ${junctionX} ${midY}, ${junctionX} ${junctionY}" class="edge-parent" />`;
+        lines += `<path d="M ${px} ${parentRowY} C ${px} ${midY}, ${junctionX} ${midY}, ${junctionX} ${junctionY}" class="${edgeClass}" />`;
       });
       const childMidY = junctionY + (childY - junctionY) * 0.6;
-      lines += `<path d="M ${junctionX} ${junctionY} C ${junctionX} ${childMidY}, ${childX} ${childMidY}, ${childX} ${childY}" class="edge-parent" />`;
-      lines += `<circle cx="${junctionX}" cy="${junctionY}" r="3" class="edge-junction" />`;
+      lines += `<path d="M ${junctionX} ${junctionY} C ${junctionX} ${childMidY}, ${childX} ${childMidY}, ${childX} ${childY}" class="${edgeClass}" />`;
+      lines += `<circle cx="${junctionX}" cy="${junctionY}" r="3" class="edge-junction${isAdopted ? " edge-adopted" : ""}" />`;
     });
 
     view.innerHTML = `

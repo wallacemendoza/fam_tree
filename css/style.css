@@ -249,7 +249,9 @@ body.tree-route .site-footer { display: none; }
 }
 .edge-spouse { stroke: url(#gradSpouse); stroke-width: 2; opacity: .85; stroke-linecap: round; }
 .edge-parent { stroke: url(#gradParent); stroke-width: 1.6; fill: none; opacity: .6; }
+.edge-parent.edge-adopted { stroke-dasharray: 5,5; opacity: .45; }
 .edge-junction { fill: #22d3ee; opacity: .85; }
+.edge-junction.edge-adopted { fill: #fbbf24; opacity: .65; }
 
 .gen-label {
   position: absolute;
