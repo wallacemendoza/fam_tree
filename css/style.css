@@ -240,7 +240,7 @@ body.tree-route .site-footer { display: none; }
 
 .tree-canvas svg.lines { position: absolute; z-index: 0; top: 0; left: 0; overflow: visible; pointer-events: none; }
 
-.gen-rail { position: absolute; inset: 0; z-index: 4; overflow: hidden; pointer-events: none; transform-origin: 0 0; }
+.gen-rail { position: absolute; inset: 0; z-index: 4; overflow: visible; pointer-events: none; transform-origin: 0 0; }
 .tree-viewport::before {
   content: "";
   position: absolute; top: 0; bottom: 0; left: 0; width: 150px; z-index: 3;
