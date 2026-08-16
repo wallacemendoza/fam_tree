@@ -13,7 +13,7 @@
   const CARD_W = 204;
   const CARD_H = 82;
   const TOP_PAD = 86;
-  const LEFT_PAD = 100;
+  const LEFT_PAD = 210;
   const MIN_SCALE = 0.22;
   const MAX_SCALE = 2;
   const collapsedBranches = new Set();
@@ -43,6 +43,20 @@
 
   function personById(id) {
     return DATA.individuals[id];
+  }
+
+  // Deterministic gradient per person, derived from their id, so the same
+  // person always gets the same avatar color across tree/drawer/profile.
+  function avatarGradient(id) {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+    const h1 = hash % 360;
+    const h2 = (h1 + 46) % 360;
+    return `linear-gradient(135deg, hsl(${h1} 82% 62%), hsl(${h2} 82% 56%))`;
+  }
+
+  function initialsOf(person) {
+    return (person.given || person.name).split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
   }
 
   function familyById(id) {
@@ -115,16 +129,23 @@
       const span = lifeSpanFromNode(n);
       const hasChildren = childrenByParent.has(n.id);
       const isCollapsed = collapsedBranches.has(n.id);
-      const initials = (n.given || n.name).split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
+      const initials = initialsOf(n);
       cardsHtml += `<article class="person-card ${sexClass}" style="left:${left}px; top:${top}px; width:${CARD_W}px;" data-id="${n.id}" tabindex="0" role="button" aria-label="Open ${n.name}">
-        <div class="pc-avatar" aria-hidden="true">${initials}</div>
+        <div class="pc-avatar" aria-hidden="true" style="background:${avatarGradient(n.id)};">${initials}</div>
         <div class="pc-copy"><p class="pc-name">${n.name}</p><p class="pc-dates">${span}</p></div>
         ${hasChildren ? `<button class="branch-toggle" type="button" aria-label="${isCollapsed ? "Expand" : "Collapse"} descendants" aria-expanded="${!isCollapsed}">${isCollapsed ? "+" : "-"}</button>` : ""}
       </article>`;
     });
 
     // build SVG line layer
-    let lines = "";
+    let lines = `<defs>
+      <linearGradient id="gradSpouse" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#f472b6" /><stop offset="1" stop-color="#8b5cf6" />
+      </linearGradient>
+      <linearGradient id="gradParent" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b5cf6" /><stop offset="1" stop-color="#22d3ee" />
+      </linearGradient>
+    </defs>`;
     TREE.edges.spouse.forEach((e) => {
       const a = nodeById[e.a], b = nodeById[e.b];
       if (!a || !b) return;
@@ -142,8 +163,8 @@
       const parentX = LEFT_PAD + e.parentMidX * X_SPACING + CARD_W / 2;
       const childX = LEFT_PAD + child.x * X_SPACING + CARD_W / 2;
       const childY = TOP_PAD + child.gen * ROW_HEIGHT;
-      const midY = parentY + (childY - parentY) * 0.48;
-      lines += `<path d="M ${parentX} ${parentY} V ${midY} H ${childX} V ${childY}" class="edge-parent" />`;
+      const midY = parentY + (childY - parentY) * 0.5;
+      lines += `<path d="M ${parentX} ${parentY} C ${parentX} ${midY}, ${childX} ${midY}, ${childX} ${childY}" class="edge-parent" />`;
     });
 
     view.innerHTML = `
@@ -158,11 +179,11 @@
           </div>
         </div>
         <div class="tree-viewport">
+          <div class="gen-rail" aria-hidden="true">${genLabels}</div>
           <div class="tree-canvas" style="width:${width}px; height:${height}px;">
           <svg class="lines" width="${width}" height="${height}" aria-hidden="true">
             ${lines}
           </svg>
-          ${genLabels}
           ${cardsHtml}
           </div>
         </div>
@@ -179,6 +200,7 @@
     const workspace = view.querySelector(".tree-workspace");
     const viewport = view.querySelector(".tree-viewport");
     const canvas = view.querySelector(".tree-canvas");
+    const rail = view.querySelector(".gen-rail");
     const zoomOutput = view.querySelector(".zoom-level");
     const drawer = view.querySelector(".person-drawer");
     let transform = { x: 0, y: 0, scale: 1 };
@@ -188,6 +210,7 @@
     function applyTransform(animate) {
       canvas.classList.toggle("is-animating", Boolean(animate));
       canvas.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
+      if (rail) rail.style.transform = `translate3d(0, ${transform.y}px, 0) scale(${transform.scale})`;
       zoomOutput.value = `${Math.round(transform.scale * 100)}%`;
       zoomOutput.textContent = zoomOutput.value;
       if (animate) window.setTimeout(() => canvas.classList.remove("is-animating"), 320);
@@ -227,7 +250,7 @@
 
     viewport.addEventListener("pointerdown", (event) => {
       if (event.target.closest("button")) return;
-      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, tx: transform.x, ty: transform.y };
+      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, tx: transform.x, ty: transform.y, target: event.target };
       moved = false;
       viewport.setPointerCapture(event.pointerId);
       viewport.classList.add("is-panning");
@@ -243,8 +266,18 @@
     });
     function endPan(event) {
       if (!pointer || pointer.id !== event.pointerId) return;
+      const wasMoved = moved;
+      const originTarget = pointer.target;
       pointer = null;
       viewport.classList.remove("is-panning");
+      // Pointer capture (set above) retargets the native 'click' event away
+      // from the card, so tap/click selection is resolved right here using
+      // the element that was actually under the pointer at pointerdown.
+      if (wasMoved || !originTarget) return;
+      const card = originTarget.closest(".person-card");
+      if (!card) return;
+      selectTreePerson(card.dataset.id, drawer);
+      canvas.querySelectorAll(".person-card").forEach((item) => item.classList.toggle("selected", item === card));
     }
     viewport.addEventListener("pointerup", endPan);
     viewport.addEventListener("pointercancel", endPan);
@@ -261,18 +294,15 @@
       if (action === "zoom-out") zoomAt(transform.scale / 1.2, rect.left + rect.width / 2, rect.top + rect.height / 2, true);
     });
 
+    // Branch-toggle buttons are excluded from pointer capture above (they're
+    // real <button> elements), so a normal 'click' still fires for them.
     canvas.addEventListener("click", (event) => {
-      if (moved) return;
       const toggle = event.target.closest(".branch-toggle");
+      if (!toggle) return;
       const card = event.target.closest(".person-card");
       if (!card) return;
-      if (toggle) {
-        collapsedBranches.has(card.dataset.id) ? collapsedBranches.delete(card.dataset.id) : collapsedBranches.add(card.dataset.id);
-        renderTree();
-        return;
-      }
-      selectTreePerson(card.dataset.id, drawer);
-      canvas.querySelectorAll(".person-card").forEach((item) => item.classList.toggle("selected", item === card));
+      collapsedBranches.has(card.dataset.id) ? collapsedBranches.delete(card.dataset.id) : collapsedBranches.add(card.dataset.id);
+      renderTree();
     });
     canvas.addEventListener("keydown", (event) => {
       if ((event.key === "Enter" || event.key === " ") && event.target.matches(".person-card")) {
@@ -300,7 +330,7 @@
     });
     const relatives = (person.fams || []).reduce((count, fid) => count + (familyById(fid)?.children.length || 0), 0);
     drawer.innerHTML = `<button class="drawer-close" type="button" data-close-drawer aria-label="Close details">x</button>
-      <div class="drawer-avatar">${(person.given || person.name).split(/\s+/).slice(0, 2).map((part) => part[0]).join("")}</div>
+      <div class="drawer-avatar" style="background:${avatarGradient(id)};">${initialsOf(person)}</div>
       <p class="drawer-label">Family record</p><h2>${person.name}</h2><p class="drawer-lifespan">${lifeSpan(person)}</p>
       ${person.birth ? `<div class="drawer-field"><span>Born</span><strong>${fmtDate(person.birth)}</strong></div>` : ""}
       ${person.death ? `<div class="drawer-field"><span>Died</span><strong>${fmtDate(person.death)}</strong></div>` : ""}
@@ -329,8 +359,8 @@
       .map((p) => {
         const sexClass = p.sex === "M" ? "male" : p.sex === "F" ? "female" : "";
         return `<div class="index-card ${sexClass}" data-id="${p.id}">
-          <p class="ic-name">${p.name}</p>
-          <p class="ic-dates">${lifeSpan(p)}</p>
+          <div class="ic-avatar" style="background:${avatarGradient(p.id)};">${initialsOf(p)}</div>
+          <div class="ic-copy"><p class="ic-name">${p.name}</p><p class="ic-dates">${lifeSpan(p)}</p></div>
         </div>`;
       })
       .join("");
@@ -408,9 +438,9 @@
             <h2>${person.name}</h2>
             <p class="profile-sub">${person.sex === "M" ? "Male" : person.sex === "F" ? "Female" : "Sex unrecorded"} &middot; ${lifeSpan(person)}</p>
           </div>
-          <div class="stamp">
+          <div class="stamp" style="background:${avatarGradient(id)};">
             <span>
-              ${birthYear ? `<span class="stamp-year">${birthYear}</span>REGISTRO` : "SEM<br>DATA"}
+              ${birthYear ? `<span class="stamp-year">${birthYear}</span>BORN` : "NO<br>DATE"}
             </span>
           </div>
         </div>

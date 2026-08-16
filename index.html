@@ -3,35 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mendoza Family Registry</title>
+<title>Mendoza — Family Tree</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="ledger-frame">
+<div class="app-frame">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="crest" aria-hidden="true">
-        <svg viewBox="0 0 60 60" class="crest-svg">
-          <circle cx="30" cy="30" r="27" />
-          <circle cx="30" cy="30" r="21" />
-          <text x="30" y="36" text-anchor="middle" class="crest-letter">M</text>
-        </svg>
-      </div>
+      <a href="#/tree" class="logo" aria-label="Mendoza family tree, home">
+        <span class="logo-mark">M</span>
+      </a>
       <div class="header-text">
-        <p class="eyebrow">Livro de Registro &middot; Family Archive</p>
-        <h1>Mendoza Family Registry</h1>
-        <p class="subtitle">A record of lineage across Rio de Janeiro and beyond &mdash; 43 souls, five generations, one book.</p>
+        <p class="eyebrow">Lineage Map</p>
+        <h1>Mendoza <span class="grad">Family Tree</span></h1>
       </div>
     </div>
     <nav class="main-nav">
-      <a href="#/tree" data-nav="tree" class="nav-link active">Tree</a>
-      <a href="#/index" data-nav="index" class="nav-link">Index</a>
+      <div class="nav-pills">
+        <a href="#/tree" data-nav="tree" class="nav-link active">Tree</a>
+        <a href="#/index" data-nav="index" class="nav-link">Index</a>
+      </div>
       <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6.5"/><line x1="14" y1="14" x2="18.5" y2="18.5"/></svg>
         <input type="search" id="search-input" placeholder="Search a name&hellip;" autocomplete="off">
         <div id="search-results" class="search-results" hidden></div>
       </div>
@@ -41,7 +39,7 @@
   <main id="view" class="view"></main>
 
   <footer class="site-footer">
-    <p>Compiled from family records &middot; entries may be incomplete &middot; click any name to open its page</p>
+    <p>43 people &middot; 5 generations &middot; compiled from family records</p>
   </footer>
 
 </div>
