@@ -171,7 +171,8 @@
       </section>
     `;
 
-    setupTreeInteraction({ width, height });
+    const focusNode = allNodes.find((node) => node.id === "@I152503363274@") || nodes[Math.floor(nodes.length / 2)];
+    setupTreeInteraction({ width, height, focusNode });
   }
 
   function setupTreeInteraction(bounds) {
@@ -204,9 +205,10 @@
 
     function centerTree(animate = true) {
       const rect = viewport.getBoundingClientRect();
-      transform.scale = rect.width < 700 ? 0.48 : 0.62;
-      transform.x = (rect.width - bounds.width * transform.scale) / 2;
-      transform.y = (rect.height - bounds.height * transform.scale) / 2;
+      transform.scale = rect.width < 700 ? 0.64 : 0.76;
+      const focusX = LEFT_PAD + bounds.focusNode.x * X_SPACING + CARD_W / 2;
+      transform.x = rect.width / 2 - focusX * transform.scale;
+      transform.y = Math.max(12, Math.min(30, rect.height * 0.025));
       applyTransform(animate);
     }
 
