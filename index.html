@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mendoza Family Registry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="ledger-frame">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="crest" aria-hidden="true">
+        <svg viewBox="0 0 60 60" class="crest-svg">
+          <circle cx="30" cy="30" r="27" />
+          <circle cx="30" cy="30" r="21" />
+          <text x="30" y="36" text-anchor="middle" class="crest-letter">M</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <p class="eyebrow">Livro de Registro &middot; Family Archive</p>
+        <h1>Mendoza Family Registry</h1>
+        <p class="subtitle">A record of lineage across Rio de Janeiro and beyond &mdash; 43 souls, five generations, one book.</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="#/tree" data-nav="tree" class="nav-link active">Tree</a>
+      <a href="#/index" data-nav="index" class="nav-link">Index</a>
+      <div class="search-wrap">
+        <input type="search" id="search-input" placeholder="Search a name&hellip;" autocomplete="off">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <footer class="site-footer">
+    <p>Compiled from family records &middot; entries may be incomplete &middot; click any name to open its page</p>
+  </footer>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

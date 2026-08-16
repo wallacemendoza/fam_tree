@@ -1,0 +1,409 @@
+/* ===========================================================
+   Mendoza Family Registry
+   Design: a civil-registry ledger. Deep ink-green cover,
+   aged-paper index cards, brass rule lines, stamp-red accents.
+   =========================================================== */
+
+:root {
+  --ink:        #182922;
+  --ink-deep:   #101c17;
+  --paper:      #f1e8d4;
+  --paper-dim:  #e7dcc2;
+  --paper-line: #cabb96;
+  --text-ink:   #2b2418;
+  --text-soft:  #5b5240;
+  --text-light: #ece3cd;
+  --text-muted: #a9b8ac;
+  --brass:      #b3925a;
+  --brass-dim:  #7c6a45;
+  --stamp-red:  #8f3a2b;
+  --stamp-red-dim: #6e2c21;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body:    'Lora', 'Georgia', serif;
+  --font-stamp:   'Special Elite', 'Courier New', monospace;
+
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink-deep);
+  color: var(--text-light);
+  font-family: var(--font-body);
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at top, rgba(255,255,255,0.03), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 3px);
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--brass); color: var(--ink-deep); }
+
+.ledger-frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ---------------- Header ---------------- */
+
+.site-header {
+  padding: 48px 0 20px;
+  border-bottom: 1px solid rgba(179, 146, 90, 0.35);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.crest-svg { width: 60px; height: 60px; }
+.crest-svg circle {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.2;
+}
+.crest-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  fill: var(--brass);
+}
+
+.eyebrow {
+  font-family: var(--font-stamp);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stamp-red);
+  margin: 0 0 6px;
+}
+
+.header-text h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 0 0 8px;
+  color: var(--text-light);
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 15px;
+  max-width: 60ch;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-family: var(--font-stamp);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+}
+.nav-link:hover { color: var(--text-light); }
+.nav-link.active {
+  color: var(--brass);
+  border-bottom-color: var(--brass);
+}
+
+.search-wrap { position: relative; margin-left: auto; }
+#search-input {
+  background: rgba(241, 232, 212, 0.06);
+  border: 1px solid rgba(179, 146, 90, 0.4);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  width: 220px;
+  outline: none;
+}
+#search-input:focus { border-color: var(--brass); }
+#search-input::placeholder { color: var(--text-muted); }
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 280px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+  z-index: 50;
+}
+.search-results a {
+  display: block;
+  padding: 9px 14px;
+  font-size: 14px;
+  color: var(--text-ink);
+  border-bottom: 1px solid var(--paper-line);
+}
+.search-results a:last-child { border-bottom: none; }
+.search-results a:hover { background: var(--paper-dim); }
+.search-results .sr-empty {
+  padding: 12px 14px;
+  color: var(--text-soft);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ---------------- View container ---------------- */
+
+.view { padding-top: 30px; min-height: 60vh; }
+
+/* ---------------- Tree view ---------------- */
+
+.tree-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 24px;
+  border: 1px solid rgba(179,146,90,0.25);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.02));
+}
+
+.tree-canvas { position: relative; }
+
+.tree-canvas svg.lines { position: absolute; top: 0; left: 0; }
+
+.gen-label {
+  position: absolute;
+  left: 12px;
+  font-family: var(--font-stamp);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+}
+
+.person-card {
+  position: absolute;
+  width: 176px;
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  padding: 10px 12px 9px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.25), 0 6px 14px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.person-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.25), 0 12px 20px rgba(0,0,0,0.35);
+}
+.person-card.male { border-left: 3px solid #4c6d7c; }
+.person-card.female { border-left: 3px solid var(--stamp-red-dim); }
+.person-card.you { outline: 2px solid var(--brass); }
+
+.pc-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text-ink);
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+.pc-dates {
+  font-family: var(--font-stamp);
+  font-size: 10.5px;
+  color: var(--text-soft);
+}
+
+/* ---------------- Index view ---------------- */
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.index-card {
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.25), 0 6px 14px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.index-card:hover { transform: translateY(-2px); }
+.index-card .ic-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-ink);
+  margin: 0 0 5px;
+}
+.index-card .ic-dates {
+  font-family: var(--font-stamp);
+  font-size: 11px;
+  color: var(--text-soft);
+}
+.index-card.male { border-left: 3px solid #4c6d7c; }
+.index-card.female { border-left: 3px solid var(--stamp-red-dim); }
+
+/* ---------------- Profile page ---------------- */
+
+.profile {
+  background: var(--paper);
+  color: var(--text-ink);
+  border-radius: 6px;
+  padding: 34px 38px 38px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: var(--font-stamp);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.back-link:hover { color: var(--text-light); }
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 2px solid var(--text-ink);
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+}
+
+.profile-header h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0 0 6px;
+}
+
+.profile-sub {
+  font-family: var(--font-stamp);
+  font-size: 12px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stamp {
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  border: 2.5px solid var(--stamp-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-8deg);
+  color: var(--stamp-red);
+  font-family: var(--font-stamp);
+  text-align: center;
+  line-height: 1.15;
+  font-size: 11px;
+  opacity: 0.85;
+  padding: 6px;
+}
+.stamp .stamp-year { font-size: 18px; display:block; font-weight: bold; }
+
+.profile-section { margin-bottom: 22px; }
+.profile-section h3 {
+  font-family: var(--font-stamp);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--stamp-red);
+  margin: 0 0 10px;
+  border-bottom: 1px dotted var(--paper-line);
+  padding-bottom: 6px;
+}
+
+.field-row { display: flex; gap: 8px; font-size: 15px; margin-bottom: 6px; }
+.field-label { color: var(--text-soft); min-width: 90px; font-family: var(--font-stamp); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 2px;}
+.field-value { flex: 1; }
+
+.chip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-block;
+  background: var(--paper-dim);
+  border: 1px solid var(--paper-line);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13.5px;
+  color: var(--text-ink);
+}
+.chip:hover { background: var(--brass); color: var(--ink-deep); }
+
+.note-block {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-soft);
+  border-left: 2px solid var(--paper-line);
+  padding-left: 12px;
+  margin-bottom: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 60px 0;
+}
+
+/* ---------------- Footer ---------------- */
+
+.site-footer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(179,146,90,0.25);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-family: var(--font-stamp);
+  letter-spacing: 0.03em;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 640px) {
+  .header-inner { align-items: flex-start; }
+  .crest-svg { width: 44px; height: 44px; }
+  .main-nav { gap: 14px; }
+  .search-wrap { margin-left: 0; width: 100%; }
+  #search-input { width: 100%; }
+  .profile { padding: 24px 20px 28px; }
+  .profile-header { flex-direction: column-reverse; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .person-card, .index-card { transition: none; }
+}

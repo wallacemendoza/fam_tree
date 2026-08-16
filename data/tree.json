@@ -1,0 +1,912 @@
+{
+  "nodes": [
+    {
+      "id": "@I152503363274@",
+      "name": "Wallace Mendoza",
+      "given": "Wallace",
+      "surname": "Mendoza",
+      "sex": "M",
+      "gen": 3,
+      "x": 4.45,
+      "birth": {
+        "date": "10 Apr 1992",
+        "place": "Sao Goncalo, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152503363437@",
+      "name": "Paulo Cesar Fernandes Mendoza",
+      "given": "Paulo Cesar",
+      "surname": "Fernandes Mendoza",
+      "sex": "M",
+      "gen": 2,
+      "x": 4.45,
+      "birth": {
+        "date": "30 Apr 1957",
+        "place": "Rio de Janeiro, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152503363502@",
+      "name": "Jose Benjamim Mendoza",
+      "given": "Jose Benjamim",
+      "surname": "Mendoza",
+      "sex": "M",
+      "gen": 1,
+      "x": 1.15,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152503363586@",
+      "name": "Neiva Do Carmo Abreu",
+      "given": "Neiva Do Carmo",
+      "surname": "Abreu",
+      "sex": "F",
+      "gen": 2,
+      "x": 5.45,
+      "birth": {
+        "date": "22 Apr 1958",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152503363603@",
+      "name": "Altamir Bernardino De Abreu",
+      "given": "Altamir",
+      "surname": "Bernardino De Abreu",
+      "sex": "M",
+      "gen": 1,
+      "x": 3.3,
+      "birth": {
+        "date": "15 Feb 1932",
+        "place": "Sao Goncalo, Rio de Janeiro, Brazil"
+      },
+      "death": {
+        "date": "28 May 2016",
+        "place": "Niterói, Rio de Janeiro, Brazil"
+      }
+    },
+    {
+      "id": "@I152503363713@",
+      "name": "Nilva Portela De Abreu",
+      "given": "Nilva",
+      "surname": "Portela De Abreu",
+      "sex": "F",
+      "gen": 1,
+      "x": 4.3,
+      "birth": {
+        "date": "12 Dec 1933",
+        "place": "Sao Goncalo, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675525542@",
+      "name": "Maria Fernandes Mendoza",
+      "given": "Maria",
+      "surname": "Fernandes Mendoza",
+      "sex": "F",
+      "gen": 1,
+      "x": 2.15,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675526083@",
+      "name": "Jorge Ricardo De Abreu",
+      "given": "Jorge Ricardo",
+      "surname": "De Abreu",
+      "sex": "M",
+      "gen": 2,
+      "x": 7.75,
+      "birth": {
+        "date": "06 May 1962",
+        "place": "Sao Goncalo, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675526194@",
+      "name": "José Fernandes Mendoza",
+      "given": "José",
+      "surname": "Fernandes Mendoza",
+      "sex": "M",
+      "gen": 2,
+      "x": 0.0,
+      "birth": {
+        "date": "9 Dec 1952",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675526488@",
+      "name": "Pollyanna Abreu Mendoza",
+      "given": "Pollyanna",
+      "surname": "Abreu Mendoza",
+      "sex": "F",
+      "gen": 3,
+      "x": 3.3,
+      "birth": {
+        "date": "10 Dec 1993",
+        "place": "Sao Goncalo, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675526997@",
+      "name": "Elisabeth Amaral",
+      "given": "Elisabeth",
+      "surname": "Amaral",
+      "sex": "F",
+      "gen": 2,
+      "x": 6.6,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675527107@",
+      "name": "Wellington Zahari Amaral",
+      "given": "Wellington",
+      "surname": "Zahari Amaral",
+      "sex": "M",
+      "gen": 3,
+      "x": 8.75,
+      "birth": {
+        "date": "abt 1980",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675527198@",
+      "name": "Giselle Mendoza",
+      "given": "Giselle",
+      "surname": "Mendoza",
+      "sex": "F",
+      "gen": 3,
+      "x": 6.6,
+      "birth": {
+        "date": "18 Jun 1982",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675527275@",
+      "name": "Christina Lee Pratt",
+      "given": "Christina Lee",
+      "surname": "Pratt",
+      "sex": "F",
+      "gen": 3,
+      "x": 5.45,
+      "birth": {
+        "date": "07 Feb 1992",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675528417@",
+      "name": "Olliver Altamir Mendoza",
+      "given": "Olliver Altamir",
+      "surname": "Mendoza",
+      "sex": "M",
+      "gen": 4,
+      "x": 1.15,
+      "birth": {
+        "date": "23 Mar 2019",
+        "place": "Orlando, Orange, Florida, USA"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675528478@",
+      "name": "Axell Wallace Mendoza",
+      "given": "Axell Wallace",
+      "surname": "Mendoza",
+      "sex": "M",
+      "gen": 4,
+      "x": 2.3,
+      "birth": {
+        "date": "04 Dec 2024",
+        "place": "Augusta, Richmond, Georgia, USA"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675528762@",
+      "name": "Ariell Christina Mendoza",
+      "given": "Ariell Christina",
+      "surname": "Mendoza",
+      "sex": "F",
+      "gen": 4,
+      "x": 3.45,
+      "birth": {
+        "date": "04 Dec 2024",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675528882@",
+      "name": "Scott Alan Hargreaves",
+      "given": "Scott Alan",
+      "surname": "Hargreaves",
+      "sex": "M",
+      "gen": 2,
+      "x": 9.9,
+      "birth": {
+        "date": "abt 1962",
+        "place": null
+      },
+      "death": {
+        "date": "17 Nov 2016",
+        "place": null
+      }
+    },
+    {
+      "id": "@I152675529107@",
+      "name": "Patricia Pokriots",
+      "given": "Patricia",
+      "surname": "Pokriots",
+      "sex": "F",
+      "gen": 2,
+      "x": 10.9,
+      "birth": {
+        "date": "15 Apr 1966",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675529815@",
+      "name": "Eric Louis Trosch",
+      "given": "Eric Louis",
+      "surname": "Trosch",
+      "sex": "M",
+      "gen": 3,
+      "x": 14.35,
+      "birth": {
+        "date": "15 Feb 1998",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675530135@",
+      "name": "Tatiana Mattos Mendoza",
+      "given": "Tatiana",
+      "surname": "Mattos Mendoza",
+      "sex": "F",
+      "gen": 3,
+      "x": 0.0,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675530239@",
+      "name": "Marli Mattos Mendoza",
+      "given": "Marli",
+      "surname": "Mattos Mendoza",
+      "sex": "F",
+      "gen": 2,
+      "x": 1.0,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675534977@",
+      "name": "Renato Mattos Mendoza",
+      "given": "Renato",
+      "surname": "Mattos Mendoza",
+      "sex": "M",
+      "gen": 3,
+      "x": 2.15,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675535459@",
+      "name": "Laura Christina",
+      "given": "Laura Christina",
+      "surname": null,
+      "sex": "F",
+      "gen": 2,
+      "x": 8.75,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675535637@",
+      "name": "João Gabriel De Souza Abreu",
+      "given": "João Gabriel",
+      "surname": "De Souza Abreu",
+      "sex": "M",
+      "gen": 3,
+      "x": 10.9,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675535709@",
+      "name": "Jorge Victor De Souza Abreu",
+      "given": "Jorge Victor",
+      "surname": "De Souza Abreu",
+      "sex": "M",
+      "gen": 3,
+      "x": 13.2,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675536955@",
+      "name": "Altamir Bernardino de Abreu Jr",
+      "given": "Altamir Bernardino",
+      "surname": "de Abreu Jr",
+      "sex": "M",
+      "gen": 2,
+      "x": 2.15,
+      "birth": {
+        "date": "1965",
+        "place": null
+      },
+      "death": {
+        "date": "19 Mar 1965",
+        "place": "São Gonçalo, São Gonçalo, Rio de Janeiro, Brasil"
+      }
+    },
+    {
+      "id": "@I152675537764@",
+      "name": "Scott Alan Hargreaves Jr.",
+      "given": "Scott Alan",
+      "surname": "Hargreaves",
+      "sex": "M",
+      "gen": 3,
+      "x": 15.5,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675538708@",
+      "name": "Maira O Lima",
+      "given": "Maira O",
+      "surname": "Lima",
+      "sex": "F",
+      "gen": 3,
+      "x": 9.75,
+      "birth": {
+        "date": "abt 1982",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675539990@",
+      "name": "Vanessa Freire",
+      "given": "Vanessa",
+      "surname": "Freire",
+      "sex": "F",
+      "gen": 3,
+      "x": 12.05,
+      "birth": {
+        "date": "02 Oct 1981",
+        "place": "Belo Horizonte, Minas Gerais, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675540323@",
+      "name": "Lauren Fitzpatrick",
+      "given": "Lauren",
+      "surname": "Fitzpatrick",
+      "sex": "F",
+      "gen": 3,
+      "x": 16.65,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675540754@",
+      "name": "Angeline Amaral",
+      "given": "Angeline",
+      "surname": "Amaral",
+      "sex": "F",
+      "gen": 4,
+      "x": 6.9,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675543807@",
+      "name": "Nair De Souza Portela",
+      "given": "Nair",
+      "surname": "De Souza Portela",
+      "sex": "F",
+      "gen": 0,
+      "x": 1.0,
+      "birth": {
+        "date": "17 Aug 1910",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675543973@",
+      "name": "Nilo Alves Portella",
+      "given": "Nilo",
+      "surname": "Alves Portella",
+      "sex": "M",
+      "gen": 0,
+      "x": 0.0,
+      "birth": {
+        "date": "24 Mar 1906",
+        "place": "Campos, Rio de Janeiro, Brazil"
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675544073@",
+      "name": "Nauro Jorge Portela",
+      "given": "Nauro Jorge",
+      "surname": "Portela",
+      "sex": "M",
+      "gen": 1,
+      "x": 0.0,
+      "birth": {
+        "date": "1950",
+        "place": null
+      },
+      "death": {
+        "date": "28 Out 1968",
+        "place": "São Gonçalo, São Gonçalo, Rio de Janeiro, Brasil"
+      }
+    },
+    {
+      "id": "@I152675544521@",
+      "name": "Antonio Bernardino De Abreu",
+      "given": "Antonio",
+      "surname": "Bernardino De Abreu",
+      "sex": "M",
+      "gen": 0,
+      "x": 2.15,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675544578@",
+      "name": "Maria Francisca De Abreu",
+      "given": "Maria Francisca",
+      "surname": "De Abreu",
+      "sex": "F",
+      "gen": 0,
+      "x": 3.15,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675548964@",
+      "name": "Fabio Gasparetto",
+      "given": "Fabio",
+      "surname": "Gasparetto",
+      "sex": "M",
+      "gen": 3,
+      "x": 7.6,
+      "birth": {
+        "date": "29 Nov 1977",
+        "place": null
+      },
+      "death": null
+    },
+    {
+      "id": "@I152675551952@",
+      "name": "Manu",
+      "given": "Manu",
+      "surname": null,
+      "sex": "F",
+      "gen": 4,
+      "x": 4.6,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675551979@",
+      "name": "Catarina Gasparetto",
+      "given": "Catarina",
+      "surname": "Gasparetto",
+      "sex": "F",
+      "gen": 4,
+      "x": 5.75,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675558969@",
+      "name": "Laura Mendoza Tavares",
+      "given": "Laura",
+      "surname": "Mendoza Tavares",
+      "sex": "F",
+      "gen": 4,
+      "x": 0.0,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675559038@",
+      "name": "Rodrigo Tavares",
+      "given": "Rodrigo",
+      "surname": "Tavares",
+      "sex": "M",
+      "gen": 3,
+      "x": 1.0,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675559409@",
+      "name": "Nivea Maria De Abreu",
+      "given": "Nivea Maria",
+      "surname": "De Abreu",
+      "sex": "F",
+      "gen": 2,
+      "x": 3.3,
+      "birth": null,
+      "death": null
+    }
+  ],
+  "edges": {
+    "spouse": [
+      {
+        "a": "@I152503363274@",
+        "b": "@I152675527275@",
+        "famId": "@F1@"
+      },
+      {
+        "a": "@I152675544521@",
+        "b": "@I152675544578@",
+        "famId": "@F2@"
+      },
+      {
+        "a": "@I152503363437@",
+        "b": "@I152503363586@",
+        "famId": "@F3@"
+      },
+      {
+        "a": "@I152503363603@",
+        "b": "@I152503363713@",
+        "famId": "@F4@"
+      },
+      {
+        "a": "@I152675526083@",
+        "b": "@I152675535459@",
+        "famId": "@F5@"
+      },
+      {
+        "a": "@I152675527107@",
+        "b": "@I152675538708@",
+        "famId": "@F6@"
+      },
+      {
+        "a": "@I152675527107@",
+        "b": "@I152675539990@",
+        "famId": "@F7@"
+      },
+      {
+        "a": "@I152675527107@",
+        "b": "@I152675540323@",
+        "famId": "@F8@"
+      },
+      {
+        "a": "@I152675548964@",
+        "b": "@I152675527198@",
+        "famId": "@F9@"
+      },
+      {
+        "a": "@I152675528882@",
+        "b": "@I152675529107@",
+        "famId": "@F10@"
+      },
+      {
+        "a": "@I152503363437@",
+        "b": "@I152675526997@",
+        "famId": "@F11@"
+      },
+      {
+        "a": "@I152675559038@",
+        "b": "@I152675530135@",
+        "famId": "@F12@"
+      },
+      {
+        "a": "@I152503363502@",
+        "b": "@I152675525542@",
+        "famId": "@F13@"
+      },
+      {
+        "a": "@I152675543973@",
+        "b": "@I152675543807@",
+        "famId": "@F14@"
+      },
+      {
+        "a": "@I152675526194@",
+        "b": "@I152675530239@",
+        "famId": "@F15@"
+      }
+    ],
+    "parentChild": [
+      {
+        "famId": "@F1@",
+        "parents": [
+          "@I152503363274@",
+          "@I152675527275@"
+        ],
+        "parentMidX": 4.95,
+        "parentGen": 3,
+        "child": "@I152675528417@"
+      },
+      {
+        "famId": "@F1@",
+        "parents": [
+          "@I152503363274@",
+          "@I152675527275@"
+        ],
+        "parentMidX": 4.95,
+        "parentGen": 3,
+        "child": "@I152675528478@"
+      },
+      {
+        "famId": "@F1@",
+        "parents": [
+          "@I152503363274@",
+          "@I152675527275@"
+        ],
+        "parentMidX": 4.95,
+        "parentGen": 3,
+        "child": "@I152675528762@"
+      },
+      {
+        "famId": "@F2@",
+        "parents": [
+          "@I152675544521@",
+          "@I152675544578@"
+        ],
+        "parentMidX": 2.65,
+        "parentGen": 0,
+        "child": "@I152503363603@"
+      },
+      {
+        "famId": "@F3@",
+        "parents": [
+          "@I152503363437@",
+          "@I152503363586@"
+        ],
+        "parentMidX": 4.95,
+        "parentGen": 2,
+        "child": "@I152503363274@"
+      },
+      {
+        "famId": "@F3@",
+        "parents": [
+          "@I152503363437@",
+          "@I152503363586@"
+        ],
+        "parentMidX": 4.95,
+        "parentGen": 2,
+        "child": "@I152675526488@"
+      },
+      {
+        "famId": "@F4@",
+        "parents": [
+          "@I152503363603@",
+          "@I152503363713@"
+        ],
+        "parentMidX": 3.8,
+        "parentGen": 1,
+        "child": "@I152503363586@"
+      },
+      {
+        "famId": "@F4@",
+        "parents": [
+          "@I152503363603@",
+          "@I152503363713@"
+        ],
+        "parentMidX": 3.8,
+        "parentGen": 1,
+        "child": "@I152675526083@"
+      },
+      {
+        "famId": "@F4@",
+        "parents": [
+          "@I152503363603@",
+          "@I152503363713@"
+        ],
+        "parentMidX": 3.8,
+        "parentGen": 1,
+        "child": "@I152675536955@"
+      },
+      {
+        "famId": "@F4@",
+        "parents": [
+          "@I152503363603@",
+          "@I152503363713@"
+        ],
+        "parentMidX": 3.8,
+        "parentGen": 1,
+        "child": "@I152675559409@"
+      },
+      {
+        "famId": "@F5@",
+        "parents": [
+          "@I152675526083@",
+          "@I152675535459@"
+        ],
+        "parentMidX": 8.25,
+        "parentGen": 2,
+        "child": "@I152675535637@"
+      },
+      {
+        "famId": "@F5@",
+        "parents": [
+          "@I152675526083@",
+          "@I152675535459@"
+        ],
+        "parentMidX": 8.25,
+        "parentGen": 2,
+        "child": "@I152675535709@"
+      },
+      {
+        "famId": "@F7@",
+        "parents": [
+          "@I152675527107@",
+          "@I152675539990@"
+        ],
+        "parentMidX": 10.400000000000002,
+        "parentGen": 3,
+        "child": "@I152675540754@"
+      },
+      {
+        "famId": "@F9@",
+        "parents": [
+          "@I152675548964@",
+          "@I152675527198@"
+        ],
+        "parentMidX": 7.1000000000000005,
+        "parentGen": 3,
+        "child": "@I152675551952@"
+      },
+      {
+        "famId": "@F9@",
+        "parents": [
+          "@I152675548964@",
+          "@I152675527198@"
+        ],
+        "parentMidX": 7.1000000000000005,
+        "parentGen": 3,
+        "child": "@I152675551979@"
+      },
+      {
+        "famId": "@F10@",
+        "parents": [
+          "@I152675528882@",
+          "@I152675529107@"
+        ],
+        "parentMidX": 10.4,
+        "parentGen": 2,
+        "child": "@I152675527275@"
+      },
+      {
+        "famId": "@F10@",
+        "parents": [
+          "@I152675528882@",
+          "@I152675529107@"
+        ],
+        "parentMidX": 10.4,
+        "parentGen": 2,
+        "child": "@I152675529815@"
+      },
+      {
+        "famId": "@F11@",
+        "parents": [
+          "@I152503363437@",
+          "@I152675526997@"
+        ],
+        "parentMidX": 5.525,
+        "parentGen": 2,
+        "child": "@I152675527107@"
+      },
+      {
+        "famId": "@F11@",
+        "parents": [
+          "@I152503363437@",
+          "@I152675526997@"
+        ],
+        "parentMidX": 5.525,
+        "parentGen": 2,
+        "child": "@I152675527198@"
+      },
+      {
+        "famId": "@F12@",
+        "parents": [
+          "@I152675559038@",
+          "@I152675530135@"
+        ],
+        "parentMidX": 0.5,
+        "parentGen": 3,
+        "child": "@I152675558969@"
+      },
+      {
+        "famId": "@F13@",
+        "parents": [
+          "@I152503363502@",
+          "@I152675525542@"
+        ],
+        "parentMidX": 1.65,
+        "parentGen": 1,
+        "child": "@I152675526194@"
+      },
+      {
+        "famId": "@F13@",
+        "parents": [
+          "@I152503363502@",
+          "@I152675525542@"
+        ],
+        "parentMidX": 1.65,
+        "parentGen": 1,
+        "child": "@I152503363437@"
+      },
+      {
+        "famId": "@F14@",
+        "parents": [
+          "@I152675543973@",
+          "@I152675543807@"
+        ],
+        "parentMidX": 0.5,
+        "parentGen": 0,
+        "child": "@I152503363713@"
+      },
+      {
+        "famId": "@F14@",
+        "parents": [
+          "@I152675543973@",
+          "@I152675543807@"
+        ],
+        "parentMidX": 0.5,
+        "parentGen": 0,
+        "child": "@I152675544073@"
+      },
+      {
+        "famId": "@F15@",
+        "parents": [
+          "@I152675526194@",
+          "@I152675530239@"
+        ],
+        "parentMidX": 0.5,
+        "parentGen": 2,
+        "child": "@I152675530135@"
+      },
+      {
+        "famId": "@F15@",
+        "parents": [
+          "@I152675526194@",
+          "@I152675530239@"
+        ],
+        "parentMidX": 0.5,
+        "parentGen": 2,
+        "child": "@I152675534977@"
+      },
+      {
+        "famId": "@F16@",
+        "parents": [
+          "@I152675528882@"
+        ],
+        "parentMidX": 9.9,
+        "parentGen": 2,
+        "child": "@I152675537764@"
+      }
+    ]
+  },
+  "maxGen": 4
+}
