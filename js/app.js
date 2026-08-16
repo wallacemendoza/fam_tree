@@ -413,7 +413,7 @@
     });
 
     // spouses + children grouped by family
-    let unionsHtml = "";
+    let partnersHtml = "";
     (person.fams || []).forEach((fid) => {
       const f = familyById(fid);
       if (!f) return;
@@ -427,9 +427,9 @@
         .filter((cid) => personById(cid))
         .map((cid) => `<a class="chip" href="#/person/${cid}">${personById(cid).name}</a>`)
         .join("");
-      unionsHtml += `
+      partnersHtml += `
         <div class="profile-section">
-          <h3>Union</h3>
+          <h3>Partner</h3>
           <div class="chip-list">${spouseChip}</div>
           ${marrLine}
           ${kids ? `<p class="field-label" style="margin-top:10px;">Children</p><div class="chip-list" style="margin-top:6px;">${kids}</div>` : ""}
@@ -471,7 +471,7 @@
 
         ${parentsHtml ? `<div class="profile-section"><h3>Parents</h3><div class="chip-list">${parentsHtml}</div></div>` : ""}
 
-        ${unionsHtml || ""}
+        ${partnersHtml || ""}
 
         ${notesHtml ? `<div class="profile-section"><h3>Notes</h3>${notesHtml}</div>` : ""}
       </div>

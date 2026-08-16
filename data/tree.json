@@ -41,9 +41,9 @@
     },
     {
       "id": "@I152503363586@",
-      "name": "Neiva Do Carmo Abreu",
+      "name": "Neiva Do Carmo De Abreu",
       "given": "Neiva Do Carmo",
-      "surname": "Abreu",
+      "surname": "De Abreu",
       "sex": "F",
       "gen": 2,
       "x": 5.45,
@@ -418,9 +418,9 @@
     },
     {
       "id": "@I152675540754@",
-      "name": "Angeline Amaral",
+      "name": "Angeline Freire Amaral",
       "given": "Angeline",
-      "surname": "Amaral",
+      "surname": "Freire Amaral",
       "sex": "F",
       "gen": 4,
       "x": 6.9,
@@ -510,8 +510,8 @@
     },
     {
       "id": "@I152675551952@",
-      "name": "Manu Gasparetto",
-      "given": "Manu",
+      "name": "Manuela Gasparetto",
+      "given": "Manuela",
       "surname": "Gasparetto",
       "sex": "F",
       "gen": 4,
@@ -560,7 +560,10 @@
       "sex": "F",
       "gen": 2,
       "x": 3.3,
-      "birth": null,
+      "birth": {
+        "date": "28 Feb 1973",
+        "place": null
+      },
       "death": null
     },
     {
