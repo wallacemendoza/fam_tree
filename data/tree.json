@@ -30,8 +30,8 @@
     },
     {
       "id": "@I152503363502@",
-      "name": "Jose Benjamim Mendoza",
-      "given": "Jose Benjamim",
+      "name": "Manoel Benjamim Mendoza",
+      "given": "Manoel Benjamim",
       "surname": "Mendoza",
       "sex": "M",
       "gen": 1,
@@ -157,16 +157,16 @@
       "gen": 3,
       "x": 8.75,
       "birth": {
-        "date": "abt 1980",
+        "date": "31 Jul 1980",
         "place": null
       },
       "death": null
     },
     {
       "id": "@I152675527198@",
-      "name": "Giselle Mendoza",
+      "name": "Giselle Amaral Mendoza",
       "given": "Giselle",
-      "surname": "Mendoza",
+      "surname": "Amaral Mendoza",
       "sex": "F",
       "gen": 3,
       "x": 6.6,
@@ -285,7 +285,10 @@
       "sex": "F",
       "gen": 3,
       "x": 0.0,
-      "birth": null,
+      "birth": {
+        "date": "06 Apr 1980",
+        "place": null
+      },
       "death": null
     },
     {
@@ -340,7 +343,10 @@
       "sex": "M",
       "gen": 3,
       "x": 13.2,
-      "birth": null,
+      "birth": {
+        "date": "21 Oct 1996",
+        "place": null
+      },
       "death": null
     },
     {
