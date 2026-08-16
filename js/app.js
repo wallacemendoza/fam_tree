@@ -45,14 +45,12 @@
     return DATA.individuals[id];
   }
 
-  // Deterministic gradient per person, derived from their id, so the same
-  // person always gets the same avatar color across tree/drawer/profile.
-  function avatarGradient(id) {
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
-    const h1 = hash % 360;
-    const h2 = (h1 + 46) % 360;
-    return `linear-gradient(135deg, hsl(${h1} 82% 62%), hsl(${h2} 82% 56%))`;
+  // Two-color system: blue gradient for male, pink gradient for female,
+  // neutral gray gradient when sex is unrecorded.
+  function avatarGradient(sex) {
+    if (sex === "M") return "linear-gradient(135deg, #38bdf8, #6366f1)";
+    if (sex === "F") return "linear-gradient(135deg, #f472b6, #d946ef)";
+    return "linear-gradient(135deg, #6b7280, #4b5563)";
   }
 
   function initialsOf(person) {
@@ -131,7 +129,7 @@
       const isCollapsed = collapsedBranches.has(n.id);
       const initials = initialsOf(n);
       cardsHtml += `<article class="person-card ${sexClass}" style="left:${left}px; top:${top}px; width:${CARD_W}px;" data-id="${n.id}" tabindex="0" role="button" aria-label="Open ${n.name}">
-        <div class="pc-avatar" aria-hidden="true" style="background:${avatarGradient(n.id)};">${initials}</div>
+        <div class="pc-avatar" aria-hidden="true" style="background:${avatarGradient(n.sex)};">${initials}</div>
         <div class="pc-copy"><p class="pc-name">${n.name}</p><p class="pc-dates">${span}</p></div>
         ${hasChildren ? `<button class="branch-toggle" type="button" aria-label="${isCollapsed ? "Expand" : "Collapse"} descendants" aria-expanded="${!isCollapsed}">${isCollapsed ? "+" : "-"}</button>` : ""}
       </article>`;
@@ -155,16 +153,32 @@
       lines += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" class="edge-spouse" />`;
     });
 
+    // Parent -> child connectors: drawn as a V — one curve from EACH actual
+    // parent down to a shared junction, then one curve from the junction to
+    // the child. A single line from a computed "midpoint" can visually land
+    // on top of an unrelated card when a parent has more than one marriage
+    // (their two spouses can be far apart in the row); tracing two lines
+    // back to two named cards removes that ambiguity.
     TREE.edges.parentChild.forEach((e) => {
       const child = nodeById[e.child];
-      if (!child || e.parentMidX === null || e.parentMidX === undefined) return;
-      if (!e.parents.some((id) => nodeById[id])) return;
-      const parentY = TOP_PAD + e.parentGen * ROW_HEIGHT + CARD_H;
-      const parentX = LEFT_PAD + e.parentMidX * X_SPACING + CARD_W / 2;
+      if (!child) return;
+      const presentParents = e.parents.map((id) => nodeById[id]).filter(Boolean);
+      if (presentParents.length === 0) return;
+
+      const parentRowY = TOP_PAD + presentParents[0].gen * ROW_HEIGHT + CARD_H;
       const childX = LEFT_PAD + child.x * X_SPACING + CARD_W / 2;
       const childY = TOP_PAD + child.gen * ROW_HEIGHT;
-      const midY = parentY + (childY - parentY) * 0.5;
-      lines += `<path d="M ${parentX} ${parentY} C ${parentX} ${midY}, ${childX} ${midY}, ${childX} ${childY}" class="edge-parent" />`;
+      const parentXs = presentParents.map((p) => LEFT_PAD + p.x * X_SPACING + CARD_W / 2);
+      const junctionX = parentXs.reduce((a, b) => a + b, 0) / parentXs.length;
+      const junctionY = parentRowY + (childY - parentRowY) * 0.4;
+
+      parentXs.forEach((px) => {
+        const midY = parentRowY + (junctionY - parentRowY) * 0.55;
+        lines += `<path d="M ${px} ${parentRowY} C ${px} ${midY}, ${junctionX} ${midY}, ${junctionX} ${junctionY}" class="edge-parent" />`;
+      });
+      const childMidY = junctionY + (childY - junctionY) * 0.6;
+      lines += `<path d="M ${junctionX} ${junctionY} C ${junctionX} ${childMidY}, ${childX} ${childMidY}, ${childX} ${childY}" class="edge-parent" />`;
+      lines += `<circle cx="${junctionX}" cy="${junctionY}" r="3" class="edge-junction" />`;
     });
 
     view.innerHTML = `
@@ -330,7 +344,7 @@
     });
     const relatives = (person.fams || []).reduce((count, fid) => count + (familyById(fid)?.children.length || 0), 0);
     drawer.innerHTML = `<button class="drawer-close" type="button" data-close-drawer aria-label="Close details">x</button>
-      <div class="drawer-avatar" style="background:${avatarGradient(id)};">${initialsOf(person)}</div>
+      <div class="drawer-avatar" style="background:${avatarGradient(person.sex)};">${initialsOf(person)}</div>
       <p class="drawer-label">Family record</p><h2>${person.name}</h2><p class="drawer-lifespan">${lifeSpan(person)}</p>
       ${person.birth ? `<div class="drawer-field"><span>Born</span><strong>${fmtDate(person.birth)}</strong></div>` : ""}
       ${person.death ? `<div class="drawer-field"><span>Died</span><strong>${fmtDate(person.death)}</strong></div>` : ""}
@@ -359,7 +373,7 @@
       .map((p) => {
         const sexClass = p.sex === "M" ? "male" : p.sex === "F" ? "female" : "";
         return `<div class="index-card ${sexClass}" data-id="${p.id}">
-          <div class="ic-avatar" style="background:${avatarGradient(p.id)};">${initialsOf(p)}</div>
+          <div class="ic-avatar" style="background:${avatarGradient(p.sex)};">${initialsOf(p)}</div>
           <div class="ic-copy"><p class="ic-name">${p.name}</p><p class="ic-dates">${lifeSpan(p)}</p></div>
         </div>`;
       })
@@ -438,7 +452,7 @@
             <h2>${person.name}</h2>
             <p class="profile-sub">${person.sex === "M" ? "Male" : person.sex === "F" ? "Female" : "Sex unrecorded"} &middot; ${lifeSpan(person)}</p>
           </div>
-          <div class="stamp" style="background:${avatarGradient(id)};">
+          <div class="stamp" style="background:${avatarGradient(person.sex)};">
             <span>
               ${birthYear ? `<span class="stamp-year">${birthYear}</span>BORN` : "NO<br>DATE"}
             </span>

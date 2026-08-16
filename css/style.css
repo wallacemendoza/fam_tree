@@ -248,7 +248,8 @@ body.tree-route .site-footer { display: none; }
   pointer-events: none;
 }
 .edge-spouse { stroke: url(#gradSpouse); stroke-width: 2; opacity: .85; stroke-linecap: round; }
-.edge-parent { stroke: url(#gradParent); stroke-width: 1.6; fill: none; opacity: .55; }
+.edge-parent { stroke: url(#gradParent); stroke-width: 1.6; fill: none; opacity: .6; }
+.edge-junction { fill: #22d3ee; opacity: .85; }
 
 .gen-label {
   position: absolute;
