@@ -8,11 +8,15 @@
   let DATA = null; // data.json (individuals, families)
   let TREE = null; // tree.json (nodes with gen/x, edges)
 
-  const X_SPACING = 200;
-  const ROW_HEIGHT = 160;
-  const CARD_W = 176;
-  const TOP_PAD = 30;
-  const LEFT_PAD = 70;
+  const X_SPACING = 236;
+  const ROW_HEIGHT = 190;
+  const CARD_W = 204;
+  const CARD_H = 82;
+  const TOP_PAD = 86;
+  const LEFT_PAD = 100;
+  const MIN_SCALE = 0.22;
+  const MAX_SCALE = 2;
+  const collapsedBranches = new Set();
 
   function fmtYear(dateStr) {
     if (!dateStr) return null;
@@ -52,6 +56,7 @@
     const parts = hash.replace(/^#\//, "").split("/");
     document.querySelectorAll(".nav-link").forEach((a) => a.classList.remove("active"));
 
+    document.body.classList.toggle("tree-route", parts[0] === "tree" || !parts[0]);
     if (parts[0] === "person" && parts[1]) {
       renderProfile(parts[1]);
     } else if (parts[0] === "index") {
@@ -69,15 +74,34 @@
   // ---------------- Tree view ----------------
 
   function renderTree() {
-    const nodes = TREE.nodes;
+    const allNodes = TREE.nodes;
+    const childrenByParent = new Map();
+    TREE.edges.parentChild.forEach((edge) => {
+      edge.parents.forEach((parentId) => {
+        if (!childrenByParent.has(parentId)) childrenByParent.set(parentId, new Set());
+        childrenByParent.get(parentId).add(edge.child);
+      });
+    });
+
+    const hiddenIds = new Set();
+    function hideDescendants(id) {
+      (childrenByParent.get(id) || []).forEach((childId) => {
+        if (hiddenIds.has(childId)) return;
+        hiddenIds.add(childId);
+        hideDescendants(childId);
+      });
+    }
+    collapsedBranches.forEach(hideDescendants);
+
+    const nodes = allNodes.filter((node) => !hiddenIds.has(node.id));
     const maxGen = TREE.maxGen;
-    const maxX = Math.max(...nodes.map((n) => n.x));
-    const width = LEFT_PAD + (maxX + 1) * X_SPACING + 40;
-    const height = TOP_PAD + (maxGen + 1) * ROW_HEIGHT + 40;
+    const maxX = Math.max(0, ...nodes.map((n) => n.x));
+    const width = LEFT_PAD + (maxX + 1) * X_SPACING + 100;
+    const height = TOP_PAD + (maxGen + 1) * ROW_HEIGHT + 100;
 
     let genLabels = "";
     for (let g = 0; g <= maxGen; g++) {
-      genLabels += `<div class="gen-label" style="top:${TOP_PAD + g * ROW_HEIGHT + 4}px;">Gen ${g + 1}</div>`;
+      genLabels += `<div class="gen-label" style="top:${TOP_PAD + g * ROW_HEIGHT + 28}px;"><span>${String(g + 1).padStart(2, "0")}</span> Generation</div>`;
     }
 
     let cardsHtml = "";
@@ -89,10 +113,14 @@
       const top = TOP_PAD + n.gen * ROW_HEIGHT;
       const sexClass = n.sex === "M" ? "male" : n.sex === "F" ? "female" : "";
       const span = lifeSpanFromNode(n);
-      cardsHtml += `<div class="person-card ${sexClass}" style="left:${left}px; top:${top}px; width:${CARD_W}px;" data-id="${n.id}">
-        <p class="pc-name">${n.name}</p>
-        <p class="pc-dates">${span}</p>
-      </div>`;
+      const hasChildren = childrenByParent.has(n.id);
+      const isCollapsed = collapsedBranches.has(n.id);
+      const initials = (n.given || n.name).split(/\s+/).slice(0, 2).map((part) => part[0]).join("");
+      cardsHtml += `<article class="person-card ${sexClass}" style="left:${left}px; top:${top}px; width:${CARD_W}px;" data-id="${n.id}" tabindex="0" role="button" aria-label="Open ${n.name}">
+        <div class="pc-avatar" aria-hidden="true">${initials}</div>
+        <div class="pc-copy"><p class="pc-name">${n.name}</p><p class="pc-dates">${span}</p></div>
+        ${hasChildren ? `<button class="branch-toggle" type="button" aria-label="${isCollapsed ? "Expand" : "Collapse"} descendants" aria-expanded="${!isCollapsed}">${isCollapsed ? "+" : "-"}</button>` : ""}
+      </article>`;
     });
 
     // build SVG line layer
@@ -100,7 +128,7 @@
     TREE.edges.spouse.forEach((e) => {
       const a = nodeById[e.a], b = nodeById[e.b];
       if (!a || !b) return;
-      const y = TOP_PAD + a.gen * ROW_HEIGHT + 30;
+      const y = TOP_PAD + a.gen * ROW_HEIGHT + CARD_H / 2;
       const x1 = LEFT_PAD + a.x * X_SPACING + CARD_W;
       const x2 = LEFT_PAD + b.x * X_SPACING;
       lines += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" class="edge-spouse" />`;
@@ -109,35 +137,175 @@
     TREE.edges.parentChild.forEach((e) => {
       const child = nodeById[e.child];
       if (!child || e.parentMidX === null || e.parentMidX === undefined) return;
-      const parentY = TOP_PAD + e.parentGen * ROW_HEIGHT + 30;
+      if (!e.parents.some((id) => nodeById[id])) return;
+      const parentY = TOP_PAD + e.parentGen * ROW_HEIGHT + CARD_H;
       const parentX = LEFT_PAD + e.parentMidX * X_SPACING + CARD_W / 2;
       const childX = LEFT_PAD + child.x * X_SPACING + CARD_W / 2;
       const childY = TOP_PAD + child.gen * ROW_HEIGHT;
-      const midY = (parentY + childY) / 2;
+      const midY = parentY + (childY - parentY) * 0.48;
       lines += `<path d="M ${parentX} ${parentY} V ${midY} H ${childX} V ${childY}" class="edge-parent" />`;
     });
 
     view.innerHTML = `
-      <div class="tree-scroll">
-        <div class="tree-canvas" style="width:${width}px; height:${height}px;">
-          <svg class="lines" width="${width}" height="${height}">
+      <section class="tree-workspace" aria-label="Interactive family tree">
+        <div class="tree-toolbar">
+          <div class="tree-heading"><span class="tree-kicker">Family lineage</span><strong>${nodes.length}</strong> of ${allNodes.length} people</div>
+          <div class="zoom-controls" aria-label="Canvas controls">
+            <button type="button" data-action="zoom-out" title="Zoom out" aria-label="Zoom out">-</button>
+            <output class="zoom-level" aria-live="polite">100%</output>
+            <button type="button" data-action="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
+            <button type="button" class="fit-button" data-action="fit" title="Fit tree to screen">Fit</button>
+          </div>
+        </div>
+        <div class="tree-viewport">
+          <div class="tree-canvas" style="width:${width}px; height:${height}px;">
+          <svg class="lines" width="${width}" height="${height}" aria-hidden="true">
             ${lines}
           </svg>
           ${genLabels}
           ${cardsHtml}
+          </div>
         </div>
-      </div>
-      <style>
-        .edge-spouse { stroke: var(--stamp-red-dim); stroke-width: 2; }
-        .edge-parent { stroke: var(--brass-dim); stroke-width: 1.5; fill: none; }
-      </style>
+        <div class="canvas-hint">Drag to move <span></span> Scroll to zoom</div>
+        <aside class="person-drawer" aria-live="polite" aria-label="Person details"></aside>
+      </section>
     `;
 
-    view.querySelectorAll(".person-card").forEach((card) => {
-      card.addEventListener("click", () => {
-        window.location.hash = `#/person/${card.dataset.id}`;
-      });
+    setupTreeInteraction({ width, height });
+  }
+
+  function setupTreeInteraction(bounds) {
+    const workspace = view.querySelector(".tree-workspace");
+    const viewport = view.querySelector(".tree-viewport");
+    const canvas = view.querySelector(".tree-canvas");
+    const zoomOutput = view.querySelector(".zoom-level");
+    const drawer = view.querySelector(".person-drawer");
+    let transform = { x: 0, y: 0, scale: 1 };
+    let pointer = null;
+    let moved = false;
+
+    function applyTransform(animate) {
+      canvas.classList.toggle("is-animating", Boolean(animate));
+      canvas.style.transform = `translate3d(${transform.x}px, ${transform.y}px, 0) scale(${transform.scale})`;
+      zoomOutput.value = `${Math.round(transform.scale * 100)}%`;
+      zoomOutput.textContent = zoomOutput.value;
+      if (animate) window.setTimeout(() => canvas.classList.remove("is-animating"), 320);
+    }
+
+    function fitTree(animate = true) {
+      const rect = viewport.getBoundingClientRect();
+      const padding = rect.width < 600 ? 28 : 72;
+      const scale = Math.min((rect.width - padding * 2) / bounds.width, (rect.height - padding * 2) / bounds.height, 1.05);
+      transform.scale = Math.max(MIN_SCALE, scale);
+      transform.x = (rect.width - bounds.width * transform.scale) / 2;
+      transform.y = (rect.height - bounds.height * transform.scale) / 2;
+      applyTransform(animate);
+    }
+
+    function centerTree(animate = true) {
+      const rect = viewport.getBoundingClientRect();
+      transform.scale = rect.width < 700 ? 0.48 : 0.62;
+      transform.x = (rect.width - bounds.width * transform.scale) / 2;
+      transform.y = (rect.height - bounds.height * transform.scale) / 2;
+      applyTransform(animate);
+    }
+
+    function zoomAt(nextScale, clientX, clientY, animate = false) {
+      const rect = viewport.getBoundingClientRect();
+      const px = clientX - rect.left;
+      const py = clientY - rect.top;
+      const scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, nextScale));
+      const worldX = (px - transform.x) / transform.scale;
+      const worldY = (py - transform.y) / transform.scale;
+      transform.x = px - worldX * scale;
+      transform.y = py - worldY * scale;
+      transform.scale = scale;
+      applyTransform(animate);
+    }
+
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.target.closest("button")) return;
+      pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, tx: transform.x, ty: transform.y };
+      moved = false;
+      viewport.setPointerCapture(event.pointerId);
+      viewport.classList.add("is-panning");
     });
+    viewport.addEventListener("pointermove", (event) => {
+      if (!pointer || pointer.id !== event.pointerId) return;
+      const dx = event.clientX - pointer.x;
+      const dy = event.clientY - pointer.y;
+      moved = moved || Math.abs(dx) + Math.abs(dy) > 5;
+      transform.x = pointer.tx + dx;
+      transform.y = pointer.ty + dy;
+      applyTransform(false);
+    });
+    function endPan(event) {
+      if (!pointer || pointer.id !== event.pointerId) return;
+      pointer = null;
+      viewport.classList.remove("is-panning");
+    }
+    viewport.addEventListener("pointerup", endPan);
+    viewport.addEventListener("pointercancel", endPan);
+    viewport.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      zoomAt(transform.scale * Math.exp(-event.deltaY * 0.0013), event.clientX, event.clientY);
+    }, { passive: false });
+
+    workspace.querySelector(".zoom-controls").addEventListener("click", (event) => {
+      const action = event.target.closest("button")?.dataset.action;
+      const rect = viewport.getBoundingClientRect();
+      if (action === "fit") fitTree();
+      if (action === "zoom-in") zoomAt(transform.scale * 1.2, rect.left + rect.width / 2, rect.top + rect.height / 2, true);
+      if (action === "zoom-out") zoomAt(transform.scale / 1.2, rect.left + rect.width / 2, rect.top + rect.height / 2, true);
+    });
+
+    canvas.addEventListener("click", (event) => {
+      if (moved) return;
+      const toggle = event.target.closest(".branch-toggle");
+      const card = event.target.closest(".person-card");
+      if (!card) return;
+      if (toggle) {
+        collapsedBranches.has(card.dataset.id) ? collapsedBranches.delete(card.dataset.id) : collapsedBranches.add(card.dataset.id);
+        renderTree();
+        return;
+      }
+      selectTreePerson(card.dataset.id, drawer);
+      canvas.querySelectorAll(".person-card").forEach((item) => item.classList.toggle("selected", item === card));
+    });
+    canvas.addEventListener("keydown", (event) => {
+      if ((event.key === "Enter" || event.key === " ") && event.target.matches(".person-card")) {
+        event.preventDefault();
+        selectTreePerson(event.target.dataset.id, drawer);
+      }
+    });
+    drawer.addEventListener("click", (event) => {
+      if (event.target.closest("[data-close-drawer]")) drawer.classList.remove("open");
+    });
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => fitTree(), 120);
+    }, { once: true });
+    requestAnimationFrame(() => centerTree(false));
+  }
+
+  function selectTreePerson(id, drawer) {
+    const person = personById(id);
+    if (!person) return;
+    const parentNames = (person.famc || []).flatMap((fid) => {
+      const family = familyById(fid);
+      return family ? [family.husb, family.wife].filter(Boolean).map((pid) => personById(pid)?.name).filter(Boolean) : [];
+    });
+    const relatives = (person.fams || []).reduce((count, fid) => count + (familyById(fid)?.children.length || 0), 0);
+    drawer.innerHTML = `<button class="drawer-close" type="button" data-close-drawer aria-label="Close details">x</button>
+      <div class="drawer-avatar">${(person.given || person.name).split(/\s+/).slice(0, 2).map((part) => part[0]).join("")}</div>
+      <p class="drawer-label">Family record</p><h2>${person.name}</h2><p class="drawer-lifespan">${lifeSpan(person)}</p>
+      ${person.birth ? `<div class="drawer-field"><span>Born</span><strong>${fmtDate(person.birth)}</strong></div>` : ""}
+      ${person.death ? `<div class="drawer-field"><span>Died</span><strong>${fmtDate(person.death)}</strong></div>` : ""}
+      ${parentNames.length ? `<div class="drawer-field"><span>Parents</span><strong>${parentNames.join(" & ")}</strong></div>` : ""}
+      ${relatives ? `<div class="drawer-field"><span>Children</span><strong>${relatives}</strong></div>` : ""}
+      <a class="drawer-profile-link" href="#/person/${id}">View complete record <span aria-hidden="true">-&gt;</span></a>`;
+    drawer.classList.add("open");
   }
 
   function lifeSpanFromNode(n) {
