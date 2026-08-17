@@ -17,6 +17,7 @@
   const MIN_SCALE = 0.22;
   const MAX_SCALE = 2;
   const collapsedBranches = new Set();
+  let focusedPersonId = null;
 
   function fmtYear(dateStr) {
     if (!dateStr) return null;
@@ -43,6 +44,29 @@
 
   function personById(id) {
     return DATA.individuals[id];
+  }
+
+  function getAncestors(personId) {
+    const ancestors = new Set([personId]);
+    const queue = [personId];
+    while (queue.length > 0) {
+      const currentId = queue.shift();
+      const person = personById(currentId);
+      if (!person || !person.famc) continue;
+      person.famc.forEach((famId) => {
+        const family = DATA.families[famId];
+        if (!family) return;
+        (family.husb ? [family.husb] : [])
+          .concat(family.wife ? [family.wife] : [])
+          .forEach((parentId) => {
+            if (!ancestors.has(parentId)) {
+              ancestors.add(parentId);
+              queue.push(parentId);
+            }
+          });
+      });
+    }
+    return ancestors;
   }
 
   // Two-color system: blue gradient for male, pink gradient for female,
@@ -104,6 +128,13 @@
       });
     }
     collapsedBranches.forEach(hideDescendants);
+
+    if (focusedPersonId) {
+      const ancestorIds = getAncestors(focusedPersonId);
+      allNodes.forEach((node) => {
+        if (!ancestorIds.has(node.id)) hiddenIds.add(node.id);
+      });
+    }
 
     const nodes = allNodes.filter((node) => !hiddenIds.has(node.id));
     const maxGen = TREE.maxGen;
@@ -192,6 +223,7 @@
             <output class="zoom-level" aria-live="polite">100%</output>
             <button type="button" data-action="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
             <button type="button" class="fit-button" data-action="fit" title="Fit tree to screen">Fit</button>
+            ${focusedPersonId ? `<button type="button" data-action="clear-focus" title="Show all people" style="margin-left:12px;">✕ Clear filter</button>` : ""}
           </div>
         </div>
         <div class="tree-viewport">
@@ -293,6 +325,7 @@
       const card = originTarget.closest(".person-card");
       if (!card) return;
       selectTreePerson(card.dataset.id, drawer);
+      renderTree();
       canvas.querySelectorAll(".person-card").forEach((item) => item.classList.toggle("selected", item === card));
     }
     viewport.addEventListener("pointerup", endPan);
@@ -308,6 +341,11 @@
       if (action === "fit") fitTree();
       if (action === "zoom-in") zoomAt(transform.scale * 1.2, rect.left + rect.width / 2, rect.top + rect.height / 2, true);
       if (action === "zoom-out") zoomAt(transform.scale / 1.2, rect.left + rect.width / 2, rect.top + rect.height / 2, true);
+      if (action === "clear-focus") {
+        focusedPersonId = null;
+        renderTree();
+        fitTree();
+      }
     });
 
     // Branch-toggle buttons are excluded from pointer capture above (they're
@@ -324,6 +362,7 @@
       if ((event.key === "Enter" || event.key === " ") && event.target.matches(".person-card")) {
         event.preventDefault();
         selectTreePerson(event.target.dataset.id, drawer);
+        renderTree();
       }
     });
     drawer.addEventListener("click", (event) => {
@@ -338,6 +377,7 @@
   }
 
   function selectTreePerson(id, drawer) {
+    focusedPersonId = id;
     const person = personById(id);
     if (!person) return;
     const parentNames = (person.famc || []).flatMap((fid) => {
