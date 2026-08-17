@@ -136,13 +136,16 @@
 
     const nodes = allNodes.filter((node) => !hiddenIds.has(node.id));
     const maxGen = TREE.maxGen;
+    const minGen = Math.min(...nodes.map((n) => n.gen));
+    const maxGenVisible = Math.max(...nodes.map((n) => n.gen));
     const maxX = Math.max(0, ...nodes.map((n) => n.x));
     const width = LEFT_PAD + (maxX + 1) * X_SPACING + 100;
-    const height = TOP_PAD + (maxGen + 1) * ROW_HEIGHT + 100;
+    const height = TOP_PAD + (maxGenVisible - minGen + 1) * ROW_HEIGHT + 100;
 
     let genLabels = "";
-    for (let g = 0; g <= maxGen; g++) {
-      genLabels += `<div class="gen-label" style="top:${TOP_PAD + g * ROW_HEIGHT + 28}px;"><span>${String(g + 1).padStart(2, "0")}</span> Generation</div>`;
+    for (let g = minGen; g <= maxGenVisible; g++) {
+      const top = TOP_PAD + (g - minGen) * ROW_HEIGHT + 28;
+      genLabels += `<div class="gen-label" style="top:${top}px;"><span>${String(Math.abs(g)).padStart(2, "0")}</span> Generation${g < 0 ? " (Ancestors)" : ""}</div>`;
     }
 
     let cardsHtml = "";
@@ -324,6 +327,7 @@
       if (!card) return;
       selectTreePerson(card.dataset.id, drawer);
       renderTree();
+      fitTree();
       canvas.querySelectorAll(".person-card").forEach((item) => item.classList.toggle("selected", item === card));
     }
     viewport.addEventListener("pointerup", endPan);
