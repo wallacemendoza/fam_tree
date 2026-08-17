@@ -7,7 +7,7 @@
       "surname": "Mendoza",
       "sex": "M",
       "gen": 3,
-      "x": 4.45,
+      "x": 14,
       "birth": {
         "date": "10 Apr 1992",
         "place": "Sao Goncalo, Rio de Janeiro, Brazil"
@@ -21,7 +21,7 @@
       "surname": "Fernandes Mendoza",
       "sex": "M",
       "gen": 2,
-      "x": 4.45,
+      "x": 15,
       "birth": {
         "date": "30 Apr 1957",
         "place": "Rio de Janeiro, Rio de Janeiro, Brazil"
@@ -35,7 +35,7 @@
       "surname": "Mendoza",
       "sex": "M",
       "gen": 1,
-      "x": 1.15,
+      "x": 1,
       "birth": {
         "date": "28 Jun 1928",
         "place": null
@@ -49,7 +49,7 @@
       "surname": "De Abreu",
       "sex": "F",
       "gen": 2,
-      "x": 5.45,
+      "x": 12,
       "birth": {
         "date": "22 Apr 1958",
         "place": null
@@ -63,7 +63,7 @@
       "surname": "Bernardino De Abreu",
       "sex": "M",
       "gen": 1,
-      "x": 3.3,
+      "x": 0,
       "birth": {
         "date": "15 Feb 1932",
         "place": "Sao Goncalo, Rio de Janeiro, Brazil"
@@ -80,7 +80,7 @@
       "surname": "Portela De Abreu",
       "sex": "F",
       "gen": 1,
-      "x": 4.3,
+      "x": 4,
       "birth": {
         "date": "12 Dec 1933",
         "place": "Sao Goncalo, Rio de Janeiro, Brazil"
@@ -94,7 +94,7 @@
       "surname": "Fernandes Mendoza",
       "sex": "F",
       "gen": 1,
-      "x": 2.15,
+      "x": 2,
       "birth": null,
       "death": null
     },
@@ -105,7 +105,7 @@
       "surname": "De Abreu",
       "sex": "M",
       "gen": 2,
-      "x": 7.75,
+      "x": 6,
       "birth": {
         "date": "06 May 1962",
         "place": "Sao Goncalo, Rio de Janeiro, Brazil"
@@ -119,7 +119,7 @@
       "surname": "Fernandes Mendoza",
       "sex": "M",
       "gen": 2,
-      "x": 0,
+      "x": 7,
       "birth": {
         "date": "9 Dec 1952",
         "place": null
@@ -133,7 +133,7 @@
       "surname": "Abreu Mendoza",
       "sex": "F",
       "gen": 3,
-      "x": 3.3,
+      "x": 8,
       "birth": {
         "date": "10 Dec 1993",
         "place": "Sao Goncalo, Rio de Janeiro, Brazil"
@@ -147,7 +147,7 @@
       "surname": "Amaral",
       "sex": "F",
       "gen": 2,
-      "x": 6.6,
+      "x": 3,
       "birth": null,
       "death": null
     },
@@ -158,7 +158,7 @@
       "surname": "Zahari Amaral",
       "sex": "M",
       "gen": 3,
-      "x": 8.75,
+      "x": 15,
       "birth": {
         "date": "31 Jul 1980",
         "place": null
@@ -172,7 +172,7 @@
       "surname": "Amaral Mendoza",
       "sex": "F",
       "gen": 3,
-      "x": 6.6,
+      "x": 3,
       "birth": {
         "date": "18 Jun 1982",
         "place": null
@@ -186,7 +186,7 @@
       "surname": "Pratt",
       "sex": "F",
       "gen": 3,
-      "x": 5.45,
+      "x": 0,
       "birth": {
         "date": "07 Feb 1992",
         "place": null
@@ -200,7 +200,7 @@
       "surname": "Mendoza",
       "sex": "M",
       "gen": 4,
-      "x": 1.15,
+      "x": 6,
       "birth": {
         "date": "23 Mar 2019",
         "place": "Orlando, Orange, Florida, USA"
@@ -214,7 +214,7 @@
       "surname": "Mendoza",
       "sex": "M",
       "gen": 4,
-      "x": 2.3,
+      "x": 2,
       "birth": {
         "date": "04 Dec 2024",
         "place": "Augusta, Richmond, Georgia, USA"
@@ -228,7 +228,7 @@
       "surname": "Mendoza",
       "sex": "F",
       "gen": 4,
-      "x": 3.45,
+      "x": 1,
       "birth": {
         "date": "04 Dec 2024",
         "place": null
@@ -242,7 +242,7 @@
       "surname": "Hargreaves",
       "sex": "M",
       "gen": 2,
-      "x": 9.9,
+      "x": 16,
       "birth": {
         "date": "abt 1962",
         "place": null
@@ -259,7 +259,7 @@
       "surname": "Pokriots",
       "sex": "F",
       "gen": 2,
-      "x": 10.9,
+      "x": 14,
       "birth": {
         "date": "15 Apr 1966",
         "place": null
@@ -273,7 +273,7 @@
       "surname": "Trosch",
       "sex": "M",
       "gen": 3,
-      "x": 14.35,
+      "x": 1,
       "birth": {
         "date": "15 Feb 1998",
         "place": null
@@ -287,7 +287,7 @@
       "surname": "Mattos Mendoza",
       "sex": "F",
       "gen": 3,
-      "x": 0,
+      "x": 12,
       "birth": {
         "date": "06 Apr 1980",
         "place": null
@@ -301,7 +301,7 @@
       "surname": "Mattos Mendoza",
       "sex": "F",
       "gen": 2,
-      "x": 1,
+      "x": 11,
       "birth": null,
       "death": null
     },
@@ -312,7 +312,7 @@
       "surname": "Mattos Mendoza",
       "sex": "M",
       "gen": 3,
-      "x": 2.15,
+      "x": 9,
       "birth": null,
       "death": null
     },
@@ -323,7 +323,7 @@
       "surname": null,
       "sex": "F",
       "gen": 2,
-      "x": 8.75,
+      "x": 10,
       "birth": null,
       "death": null
     },
@@ -334,7 +334,7 @@
       "surname": "De Souza Abreu",
       "sex": "M",
       "gen": 3,
-      "x": 10.9,
+      "x": 4,
       "birth": null,
       "death": null
     },
@@ -345,7 +345,7 @@
       "surname": "De Souza Abreu",
       "sex": "M",
       "gen": 3,
-      "x": 13.2,
+      "x": 5,
       "birth": {
         "date": "21 Oct 1996",
         "place": null
@@ -359,7 +359,7 @@
       "surname": "de Abreu Jr",
       "sex": "M",
       "gen": 2,
-      "x": 2.15,
+      "x": 0,
       "birth": {
         "date": "1965",
         "place": null
@@ -376,7 +376,7 @@
       "surname": "Hargreaves",
       "sex": "M",
       "gen": 3,
-      "x": 15.5,
+      "x": 11,
       "birth": null,
       "death": null
     },
@@ -387,7 +387,7 @@
       "surname": "Lima",
       "sex": "F",
       "gen": 3,
-      "x": 9.75,
+      "x": 7,
       "birth": {
         "date": "abt 1982",
         "place": null
@@ -401,7 +401,7 @@
       "surname": "Freire",
       "sex": "F",
       "gen": 3,
-      "x": 12.05,
+      "x": 13,
       "birth": {
         "date": "02 Oct 1981",
         "place": "Belo Horizonte, Minas Gerais, Brazil"
@@ -415,7 +415,7 @@
       "surname": "Fitzpatrick",
       "sex": "F",
       "gen": 3,
-      "x": 16.65,
+      "x": 6,
       "birth": null,
       "death": null
     },
@@ -426,7 +426,7 @@
       "surname": "Freire Amaral",
       "sex": "F",
       "gen": 4,
-      "x": 6.9,
+      "x": 0,
       "birth": null,
       "death": null
     },
@@ -437,7 +437,7 @@
       "surname": "De Souza Portela",
       "sex": "F",
       "gen": 0,
-      "x": 1,
+      "x": 4,
       "birth": {
         "date": "17 Aug 1910",
         "place": null
@@ -451,7 +451,7 @@
       "surname": "Alves Portella",
       "sex": "M",
       "gen": 0,
-      "x": 0,
+      "x": 5,
       "birth": {
         "date": "24 Mar 1906",
         "place": "Campos, Rio de Janeiro, Brazil"
@@ -465,7 +465,7 @@
       "surname": "Portela",
       "sex": "M",
       "gen": 1,
-      "x": 0,
+      "x": 3,
       "birth": {
         "date": "1950",
         "place": null
@@ -482,7 +482,7 @@
       "surname": "Bernardino De Abreu",
       "sex": "M",
       "gen": 0,
-      "x": 2.15,
+      "x": 0,
       "birth": null,
       "death": null
     },
@@ -493,7 +493,7 @@
       "surname": "De Abreu",
       "sex": "F",
       "gen": 0,
-      "x": 3.15,
+      "x": 2,
       "birth": null,
       "death": null
     },
@@ -504,7 +504,7 @@
       "surname": "Gasparetto",
       "sex": "M",
       "gen": 3,
-      "x": 7.6,
+      "x": 2,
       "birth": {
         "date": "29 Nov 1977",
         "place": null
@@ -518,7 +518,7 @@
       "surname": "Gasparetto",
       "sex": "F",
       "gen": 4,
-      "x": 4.6,
+      "x": 5,
       "birth": null,
       "death": null
     },
@@ -529,7 +529,7 @@
       "surname": "Gasparetto",
       "sex": "F",
       "gen": 4,
-      "x": 5.75,
+      "x": 3,
       "birth": null,
       "death": null
     },
@@ -540,7 +540,7 @@
       "surname": "Mendoza Tavares",
       "sex": "F",
       "gen": 4,
-      "x": 0,
+      "x": 4,
       "birth": null,
       "death": null
     },
@@ -551,7 +551,7 @@
       "surname": "Tavares",
       "sex": "M",
       "gen": 3,
-      "x": 1,
+      "x": 10,
       "birth": null,
       "death": null
     },
@@ -562,7 +562,7 @@
       "surname": "De Abreu",
       "sex": "F",
       "gen": 2,
-      "x": 3.3,
+      "x": 13,
       "birth": {
         "date": "28 Feb 1973",
         "place": null
@@ -576,7 +576,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 1,
-      "x": -6,
+      "x": 7,
       "birth": null,
       "death": null
     },
@@ -587,7 +587,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 1,
-      "x": -4.7,
+      "x": 8,
       "birth": null,
       "death": null
     },
@@ -598,7 +598,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 1,
-      "x": -2,
+      "x": 5,
       "birth": null,
       "death": null
     },
@@ -609,7 +609,7 @@
       "surname": "Pratt",
       "sex": "F",
       "gen": 1,
-      "x": -0.7,
+      "x": 6,
       "birth": null,
       "death": null
     },
@@ -620,7 +620,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 2,
-      "x": -4,
+      "x": 1,
       "birth": null,
       "death": null
     },
@@ -631,7 +631,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": -5.5,
+      "x": 5,
       "birth": null,
       "death": null
     },
@@ -642,7 +642,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": -2.5,
+      "x": 9,
       "birth": null,
       "death": null
     },
@@ -653,7 +653,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 2,
-      "x": -1,
+      "x": 2,
       "birth": null,
       "death": null
     },
@@ -664,7 +664,7 @@
       "surname": "Pratt Stunders",
       "sex": "F",
       "gen": 2,
-      "x": 0.5,
+      "x": 4,
       "birth": null,
       "death": null
     },
@@ -675,7 +675,7 @@
       "surname": "Pratt Peneda",
       "sex": "F",
       "gen": 2,
-      "x": 2,
+      "x": 8,
       "birth": null,
       "death": null
     },
@@ -686,7 +686,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": -1,
-      "x": -6.5,
+      "x": 0,
       "birth": null,
       "death": null
     },
@@ -697,7 +697,7 @@
       "surname": "Monzon",
       "sex": "F",
       "gen": -1,
-      "x": -5.2,
+      "x": 2,
       "birth": null,
       "death": null
     },
@@ -708,7 +708,7 @@
       "surname": "Pontarelli",
       "sex": "M",
       "gen": -1,
-      "x": -1.5,
+      "x": 1,
       "birth": null,
       "death": null
     },
@@ -719,7 +719,7 @@
       "surname": "Pontarelli",
       "sex": "F",
       "gen": -1,
-      "x": -0.2,
+      "x": 3,
       "birth": null,
       "death": null
     },
@@ -730,7 +730,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 0,
-      "x": -5,
+      "x": 1,
       "birth": {
         "date": "1895",
         "place": null
@@ -747,7 +747,7 @@
       "surname": "Deoduque Pontarelli",
       "sex": "F",
       "gen": 0,
-      "x": -3.7,
+      "x": 3,
       "birth": {
         "date": "1900",
         "place": null
@@ -764,7 +764,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 1,
-      "x": -1.3,
+      "x": 9,
       "birth": {
         "date": "1933",
         "place": null
@@ -880,7 +880,7 @@
           "@I152503363274@",
           "@I152675527275@"
         ],
-        "parentMidX": 4.95,
+        "parentMidX": 7,
         "parentGen": 3,
         "child": "@I152675528417@"
       },
@@ -890,7 +890,7 @@
           "@I152503363274@",
           "@I152675527275@"
         ],
-        "parentMidX": 4.95,
+        "parentMidX": 7,
         "parentGen": 3,
         "child": "@I152675528478@"
       },
@@ -900,7 +900,7 @@
           "@I152503363274@",
           "@I152675527275@"
         ],
-        "parentMidX": 4.95,
+        "parentMidX": 7,
         "parentGen": 3,
         "child": "@I152675528762@"
       },
@@ -910,7 +910,7 @@
           "@I152675544521@",
           "@I152675544578@"
         ],
-        "parentMidX": 2.65,
+        "parentMidX": 1,
         "parentGen": 0,
         "child": "@I152503363603@"
       },
@@ -920,7 +920,7 @@
           "@I152503363437@",
           "@I152503363586@"
         ],
-        "parentMidX": 4.95,
+        "parentMidX": 13.5,
         "parentGen": 2,
         "child": "@I152503363274@"
       },
@@ -930,7 +930,7 @@
           "@I152503363437@",
           "@I152503363586@"
         ],
-        "parentMidX": 4.95,
+        "parentMidX": 13.5,
         "parentGen": 2,
         "child": "@I152675526488@"
       },
@@ -940,7 +940,7 @@
           "@I152503363603@",
           "@I152503363713@"
         ],
-        "parentMidX": 3.8,
+        "parentMidX": 2,
         "parentGen": 1,
         "child": "@I152503363586@"
       },
@@ -950,7 +950,7 @@
           "@I152503363603@",
           "@I152503363713@"
         ],
-        "parentMidX": 3.8,
+        "parentMidX": 2,
         "parentGen": 1,
         "child": "@I152675526083@"
       },
@@ -960,7 +960,7 @@
           "@I152503363603@",
           "@I152503363713@"
         ],
-        "parentMidX": 3.8,
+        "parentMidX": 2,
         "parentGen": 1,
         "child": "@I152675536955@"
       },
@@ -970,7 +970,7 @@
           "@I152503363603@",
           "@I152503363713@"
         ],
-        "parentMidX": 3.8,
+        "parentMidX": 2,
         "parentGen": 1,
         "child": "@I152675559409@"
       },
@@ -980,7 +980,7 @@
           "@I152675526083@",
           "@I152675535459@"
         ],
-        "parentMidX": 8.25,
+        "parentMidX": 8,
         "parentGen": 2,
         "child": "@I152675535637@"
       },
@@ -990,7 +990,7 @@
           "@I152675526083@",
           "@I152675535459@"
         ],
-        "parentMidX": 8.25,
+        "parentMidX": 8,
         "parentGen": 2,
         "child": "@I152675535709@"
       },
@@ -1000,7 +1000,7 @@
           "@I152675527107@",
           "@I152675539990@"
         ],
-        "parentMidX": 10.400000000000002,
+        "parentMidX": 14,
         "parentGen": 3,
         "child": "@I152675540754@"
       },
@@ -1010,7 +1010,7 @@
           "@I152675548964@",
           "@I152675527198@"
         ],
-        "parentMidX": 7.1000000000000005,
+        "parentMidX": 2.5,
         "parentGen": 3,
         "child": "@I152675551952@"
       },
@@ -1020,7 +1020,7 @@
           "@I152675548964@",
           "@I152675527198@"
         ],
-        "parentMidX": 7.1000000000000005,
+        "parentMidX": 2.5,
         "parentGen": 3,
         "child": "@I152675551979@"
       },
@@ -1030,7 +1030,7 @@
           "@I152675528882@",
           "@I152675529107@"
         ],
-        "parentMidX": 10.4,
+        "parentMidX": 15,
         "parentGen": 2,
         "child": "@I152675527275@"
       },
@@ -1040,7 +1040,7 @@
           "@I152675528882@",
           "@I152675529107@"
         ],
-        "parentMidX": 10.4,
+        "parentMidX": 15,
         "parentGen": 2,
         "child": "@I152675529815@"
       },
@@ -1050,7 +1050,7 @@
           "@I152503363437@",
           "@I152675526997@"
         ],
-        "parentMidX": 5.525,
+        "parentMidX": 9,
         "parentGen": 2,
         "child": "@I152675527107@"
       },
@@ -1060,7 +1060,7 @@
           "@I152503363437@",
           "@I152675526997@"
         ],
-        "parentMidX": 5.525,
+        "parentMidX": 9,
         "parentGen": 2,
         "child": "@I152675527198@"
       },
@@ -1070,7 +1070,7 @@
           "@I152675559038@",
           "@I152675530135@"
         ],
-        "parentMidX": 0.5,
+        "parentMidX": 11,
         "parentGen": 3,
         "child": "@I152675558969@"
       },
@@ -1080,7 +1080,7 @@
           "@I152503363502@",
           "@I152675525542@"
         ],
-        "parentMidX": 1.65,
+        "parentMidX": 1.5,
         "parentGen": 1,
         "child": "@I152675526194@"
       },
@@ -1090,7 +1090,7 @@
           "@I152503363502@",
           "@I152675525542@"
         ],
-        "parentMidX": 1.65,
+        "parentMidX": 1.5,
         "parentGen": 1,
         "child": "@I152503363437@"
       },
@@ -1100,7 +1100,7 @@
           "@I152675543973@",
           "@I152675543807@"
         ],
-        "parentMidX": 0.5,
+        "parentMidX": 4.5,
         "parentGen": 0,
         "child": "@I152503363713@"
       },
@@ -1110,7 +1110,7 @@
           "@I152675543973@",
           "@I152675543807@"
         ],
-        "parentMidX": 0.5,
+        "parentMidX": 4.5,
         "parentGen": 0,
         "child": "@I152675544073@"
       },
@@ -1120,7 +1120,7 @@
           "@I152675526194@",
           "@I152675530239@"
         ],
-        "parentMidX": 0.5,
+        "parentMidX": 9,
         "parentGen": 2,
         "child": "@I152675530135@"
       },
@@ -1130,7 +1130,7 @@
           "@I152675526194@",
           "@I152675530239@"
         ],
-        "parentMidX": 0.5,
+        "parentMidX": 9,
         "parentGen": 2,
         "child": "@I152675534977@"
       },
@@ -1139,7 +1139,7 @@
         "parents": [
           "@I152675528882@"
         ],
-        "parentMidX": 9.9,
+        "parentMidX": 16,
         "parentGen": 2,
         "child": "@I152675537764@"
       },
@@ -1149,7 +1149,7 @@
           "@I152675560000@",
           "@I152675560001@"
         ],
-        "parentMidX": 18.5,
+        "parentMidX": 7.5,
         "parentGen": 1,
         "child": "@I152675560004@"
       },
@@ -1159,7 +1159,7 @@
           "@I152675560000@",
           "@I152675560001@"
         ],
-        "parentMidX": 18.5,
+        "parentMidX": 7.5,
         "parentGen": 1,
         "child": "@I152675560005@"
       },
@@ -1169,7 +1169,7 @@
           "@I152675560000@",
           "@I152675560001@"
         ],
-        "parentMidX": 18.5,
+        "parentMidX": 7.5,
         "parentGen": 1,
         "child": "@I152675560006@"
       },
@@ -1179,7 +1179,7 @@
           "@I152675560002@",
           "@I152675560003@"
         ],
-        "parentMidX": 20.5,
+        "parentMidX": 5.5,
         "parentGen": 1,
         "child": "@I152675560007@"
       },
@@ -1189,7 +1189,7 @@
           "@I152675560002@",
           "@I152675560003@"
         ],
-        "parentMidX": 20.5,
+        "parentMidX": 5.5,
         "parentGen": 1,
         "child": "@I152675560008@"
       },
@@ -1199,7 +1199,7 @@
           "@I152675560002@",
           "@I152675560003@"
         ],
-        "parentMidX": 20.5,
+        "parentMidX": 5.5,
         "parentGen": 1,
         "child": "@I152675560009@"
       },
@@ -1209,7 +1209,7 @@
           "@I152675560004@",
           "@I152675560007@"
         ],
-        "parentMidX": 19.5,
+        "parentMidX": 1.5,
         "parentGen": 2,
         "child": "@I152675527275@",
         "adoptionStatus": "adopted"
@@ -1220,7 +1220,7 @@
           "@I152675561000@",
           "@I152675561001@"
         ],
-        "parentMidX": -5.85,
+        "parentMidX": 1,
         "parentGen": -1,
         "child": "@I152675561004@"
       },
@@ -1230,7 +1230,7 @@
           "@I152675561002@",
           "@I152675561003@"
         ],
-        "parentMidX": -0.85,
+        "parentMidX": 2,
         "parentGen": -1,
         "child": "@I152675561005@"
       },
@@ -1240,7 +1240,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -4.35,
+        "parentMidX": 2,
         "parentGen": 0,
         "child": "@I152503363502@"
       },
@@ -1250,7 +1250,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -4.35,
+        "parentMidX": 2,
         "parentGen": 0,
         "child": "@I152675561006@"
       }
