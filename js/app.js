@@ -138,6 +138,22 @@
     const maxGen = TREE.maxGen;
     const minGen = Math.min(...nodes.map((n) => n.gen));
     const maxGenVisible = Math.max(...nodes.map((n) => n.gen));
+
+    // If a person is focused, reorganize visible nodes into a compact layout
+    if (focusedPersonId) {
+      const nodesByGen = {};
+      nodes.forEach(n => {
+        if (!nodesByGen[n.gen]) nodesByGen[n.gen] = [];
+        nodesByGen[n.gen].push(n);
+      });
+
+      Object.keys(nodesByGen).forEach(gen => {
+        nodesByGen[gen].forEach((n, idx) => {
+          n.x = idx * 1.0;
+        });
+      });
+    }
+
     const maxX = Math.max(0, ...nodes.map((n) => n.x));
     const width = LEFT_PAD + (maxX + 1) * X_SPACING + 100;
     const height = TOP_PAD + (maxGenVisible - minGen + 1) * ROW_HEIGHT + 100;
