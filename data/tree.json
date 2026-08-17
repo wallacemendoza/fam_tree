@@ -119,7 +119,7 @@
       "surname": "Fernandes Mendoza",
       "sex": "M",
       "gen": 2,
-      "x": 0.0,
+      "x": 0,
       "birth": {
         "date": "9 Dec 1952",
         "place": null
@@ -287,7 +287,7 @@
       "surname": "Mattos Mendoza",
       "sex": "F",
       "gen": 3,
-      "x": 0.0,
+      "x": 0,
       "birth": {
         "date": "06 Apr 1980",
         "place": null
@@ -301,7 +301,7 @@
       "surname": "Mattos Mendoza",
       "sex": "F",
       "gen": 2,
-      "x": 1.0,
+      "x": 1,
       "birth": null,
       "death": null
     },
@@ -437,7 +437,7 @@
       "surname": "De Souza Portela",
       "sex": "F",
       "gen": 0,
-      "x": 1.0,
+      "x": 1,
       "birth": {
         "date": "17 Aug 1910",
         "place": null
@@ -451,7 +451,7 @@
       "surname": "Alves Portella",
       "sex": "M",
       "gen": 0,
-      "x": 0.0,
+      "x": 0,
       "birth": {
         "date": "24 Mar 1906",
         "place": "Campos, Rio de Janeiro, Brazil"
@@ -465,7 +465,7 @@
       "surname": "Portela",
       "sex": "M",
       "gen": 1,
-      "x": 0.0,
+      "x": 0,
       "birth": {
         "date": "1950",
         "place": null
@@ -540,7 +540,7 @@
       "surname": "Mendoza Tavares",
       "sex": "F",
       "gen": 4,
-      "x": 0.0,
+      "x": 0,
       "birth": null,
       "death": null
     },
@@ -551,7 +551,7 @@
       "surname": "Tavares",
       "sex": "M",
       "gen": 3,
-      "x": 1.0,
+      "x": 1,
       "birth": null,
       "death": null
     },
@@ -576,7 +576,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 1,
-      "x": -2.8,
+      "x": -6,
       "birth": null,
       "death": null
     },
@@ -587,7 +587,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 1,
-      "x": -1.5,
+      "x": -4.7,
       "birth": null,
       "death": null
     },
@@ -598,7 +598,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 1,
-      "x": 2.8,
+      "x": -2,
       "birth": null,
       "death": null
     },
@@ -609,7 +609,7 @@
       "surname": "Pratt",
       "sex": "F",
       "gen": 1,
-      "x": 4.1,
+      "x": -0.7,
       "birth": null,
       "death": null
     },
@@ -620,7 +620,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 2,
-      "x": -2.1,
+      "x": -4,
       "birth": null,
       "death": null
     },
@@ -631,7 +631,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": -3.5,
+      "x": -5.5,
       "birth": null,
       "death": null
     },
@@ -642,7 +642,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": -0.7,
+      "x": -2.5,
       "birth": null,
       "death": null
     },
@@ -653,7 +653,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 2,
-      "x": 2.1,
+      "x": -1,
       "birth": null,
       "death": null
     },
@@ -664,7 +664,7 @@
       "surname": "Pratt Stunders",
       "sex": "F",
       "gen": 2,
-      "x": 3.5,
+      "x": 0.5,
       "birth": null,
       "death": null
     },
@@ -675,7 +675,7 @@
       "surname": "Pratt Peneda",
       "sex": "F",
       "gen": 2,
-      "x": 4.9,
+      "x": 2,
       "birth": null,
       "death": null
     },
@@ -686,7 +686,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": -1,
-      "x": -3.5,
+      "x": -6.5,
       "birth": null,
       "death": null
     },
@@ -697,7 +697,7 @@
       "surname": "Monzon",
       "sex": "F",
       "gen": -1,
-      "x": -2.2,
+      "x": -5.2,
       "birth": null,
       "death": null
     },
@@ -708,7 +708,7 @@
       "surname": "Pontarelli",
       "sex": "M",
       "gen": -1,
-      "x": 1.2,
+      "x": -1.5,
       "birth": null,
       "death": null
     },
@@ -719,7 +719,7 @@
       "surname": "Pontarelli",
       "sex": "F",
       "gen": -1,
-      "x": 2.5,
+      "x": -0.2,
       "birth": null,
       "death": null
     },
@@ -730,7 +730,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 0,
-      "x": -2.8,
+      "x": -5,
       "birth": {
         "date": "1895",
         "place": null
@@ -747,7 +747,7 @@
       "surname": "Deoduque Pontarelli",
       "sex": "F",
       "gen": 0,
-      "x": -1.5,
+      "x": -3.7,
       "birth": {
         "date": "1900",
         "place": null
@@ -764,7 +764,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 1,
-      "x": 0.3,
+      "x": -1.3,
       "birth": {
         "date": "1933",
         "place": null
@@ -1220,7 +1220,7 @@
           "@I152675561000@",
           "@I152675561001@"
         ],
-        "parentMidX": -2.85,
+        "parentMidX": -5.85,
         "parentGen": -1,
         "child": "@I152675561004@"
       },
@@ -1230,7 +1230,7 @@
           "@I152675561002@",
           "@I152675561003@"
         ],
-        "parentMidX": 1.85,
+        "parentMidX": -0.85,
         "parentGen": -1,
         "child": "@I152675561005@"
       },
@@ -1240,7 +1240,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -2.15,
+        "parentMidX": -4.35,
         "parentGen": 0,
         "child": "@I152503363502@"
       },
@@ -1250,7 +1250,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -2.15,
+        "parentMidX": -4.35,
         "parentGen": 0,
         "child": "@I152675561006@"
       }
