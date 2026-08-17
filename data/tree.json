@@ -36,7 +36,10 @@
       "sex": "M",
       "gen": 1,
       "x": 1.15,
-      "birth": null,
+      "birth": {
+        "date": "28 Jun 1928",
+        "place": null
+      },
       "death": null
     },
     {
@@ -675,6 +678,101 @@
       "x": 21.5,
       "birth": null,
       "death": null
+    },
+    {
+      "id": "@I152675561000@",
+      "name": "Manoel De La Pena Mendoza",
+      "given": "Manoel",
+      "surname": "De La Pena Mendoza",
+      "sex": "M",
+      "gen": -1,
+      "x": -2.5,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675561001@",
+      "name": "Teresa Monzon",
+      "given": "Teresa",
+      "surname": "Monzon",
+      "sex": "F",
+      "gen": -1,
+      "x": -1.5,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675561002@",
+      "name": "Salvador Pontarelli",
+      "given": "Salvador",
+      "surname": "Pontarelli",
+      "sex": "M",
+      "gen": -1,
+      "x": 0.5,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675561003@",
+      "name": "Unknown Pontarelli",
+      "given": "Unknown",
+      "surname": "Pontarelli",
+      "sex": "F",
+      "gen": -1,
+      "x": 1.5,
+      "birth": null,
+      "death": null
+    },
+    {
+      "id": "@I152675561004@",
+      "name": "Eduardo De La Pena Mendoza",
+      "given": "Eduardo",
+      "surname": "De La Pena Mendoza",
+      "sex": "M",
+      "gen": 0,
+      "x": -1.5,
+      "birth": {
+        "date": "1895",
+        "place": null
+      },
+      "death": {
+        "date": "1979",
+        "place": null
+      }
+    },
+    {
+      "id": "@I152675561005@",
+      "name": "Maria Helena Deoduque Pontarelli",
+      "given": "Maria Helena",
+      "surname": "Deoduque Pontarelli",
+      "sex": "F",
+      "gen": 0,
+      "x": -0.5,
+      "birth": {
+        "date": "1900",
+        "place": null
+      },
+      "death": {
+        "date": "1995",
+        "place": null
+      }
+    },
+    {
+      "id": "@I152675561006@",
+      "name": "Wilson De La Pena Mendoza",
+      "given": "Wilson",
+      "surname": "De La Pena Mendoza",
+      "sex": "M",
+      "gen": 1,
+      "x": 2.15,
+      "birth": {
+        "date": "1933",
+        "place": null
+      },
+      "death": {
+        "date": "2006",
+        "place": null
+      }
     }
   ],
   "edges": {
@@ -758,6 +856,21 @@
         "a": "@I152675560004@",
         "b": "@I152675560007@",
         "famId": "@F17@"
+      },
+      {
+        "a": "@I152675561000@",
+        "b": "@I152675561001@",
+        "famId": "@F20@"
+      },
+      {
+        "a": "@I152675561002@",
+        "b": "@I152675561003@",
+        "famId": "@F21@"
+      },
+      {
+        "a": "@I152675561004@",
+        "b": "@I152675561005@",
+        "famId": "@F22@"
       }
     ],
     "parentChild": [
@@ -1100,6 +1213,46 @@
         "parentGen": 2,
         "child": "@I152675527275@",
         "adoptionStatus": "adopted"
+      },
+      {
+        "famId": "@F20@",
+        "parents": [
+          "@I152675561000@",
+          "@I152675561001@"
+        ],
+        "parentMidX": -2.0,
+        "parentGen": -1,
+        "child": "@I152675561004@"
+      },
+      {
+        "famId": "@F21@",
+        "parents": [
+          "@I152675561002@",
+          "@I152675561003@"
+        ],
+        "parentMidX": 1.0,
+        "parentGen": -1,
+        "child": "@I152675561005@"
+      },
+      {
+        "famId": "@F22@",
+        "parents": [
+          "@I152675561004@",
+          "@I152675561005@"
+        ],
+        "parentMidX": -1.0,
+        "parentGen": 0,
+        "child": "@I152503363502@"
+      },
+      {
+        "famId": "@F22@",
+        "parents": [
+          "@I152675561004@",
+          "@I152675561005@"
+        ],
+        "parentMidX": -1.0,
+        "parentGen": 0,
+        "child": "@I152675561006@"
       }
     ]
   },
