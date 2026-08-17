@@ -576,7 +576,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 1,
-      "x": 18.0,
+      "x": -2.8,
       "birth": null,
       "death": null
     },
@@ -587,7 +587,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 1,
-      "x": 19.0,
+      "x": -1.5,
       "birth": null,
       "death": null
     },
@@ -598,7 +598,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 1,
-      "x": 20.0,
+      "x": 2.8,
       "birth": null,
       "death": null
     },
@@ -609,7 +609,7 @@
       "surname": "Pratt",
       "sex": "F",
       "gen": 1,
-      "x": 21.0,
+      "x": 4.1,
       "birth": null,
       "death": null
     },
@@ -620,7 +620,7 @@
       "surname": "Skaggs",
       "sex": "F",
       "gen": 2,
-      "x": 18.5,
+      "x": -2.1,
       "birth": null,
       "death": null
     },
@@ -631,7 +631,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": 17.0,
+      "x": -3.5,
       "birth": null,
       "death": null
     },
@@ -642,7 +642,7 @@
       "surname": "Skaggs",
       "sex": "M",
       "gen": 2,
-      "x": 17.5,
+      "x": -0.7,
       "birth": null,
       "death": null
     },
@@ -653,7 +653,7 @@
       "surname": "Pratt",
       "sex": "M",
       "gen": 2,
-      "x": 20.5,
+      "x": 2.1,
       "birth": null,
       "death": null
     },
@@ -664,7 +664,7 @@
       "surname": "Pratt Stunders",
       "sex": "F",
       "gen": 2,
-      "x": 21.0,
+      "x": 3.5,
       "birth": null,
       "death": null
     },
@@ -675,7 +675,7 @@
       "surname": "Pratt Peneda",
       "sex": "F",
       "gen": 2,
-      "x": 21.5,
+      "x": 4.9,
       "birth": null,
       "death": null
     },
@@ -686,7 +686,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": -1,
-      "x": -2.5,
+      "x": -3.5,
       "birth": null,
       "death": null
     },
@@ -697,7 +697,7 @@
       "surname": "Monzon",
       "sex": "F",
       "gen": -1,
-      "x": -1.5,
+      "x": -2.2,
       "birth": null,
       "death": null
     },
@@ -708,7 +708,7 @@
       "surname": "Pontarelli",
       "sex": "M",
       "gen": -1,
-      "x": 0.5,
+      "x": 1.2,
       "birth": null,
       "death": null
     },
@@ -719,7 +719,7 @@
       "surname": "Pontarelli",
       "sex": "F",
       "gen": -1,
-      "x": 1.5,
+      "x": 2.5,
       "birth": null,
       "death": null
     },
@@ -730,7 +730,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 0,
-      "x": -1.5,
+      "x": -2.8,
       "birth": {
         "date": "1895",
         "place": null
@@ -747,7 +747,7 @@
       "surname": "Deoduque Pontarelli",
       "sex": "F",
       "gen": 0,
-      "x": -0.5,
+      "x": -1.5,
       "birth": {
         "date": "1900",
         "place": null
@@ -764,7 +764,7 @@
       "surname": "De La Pena Mendoza",
       "sex": "M",
       "gen": 1,
-      "x": 2.15,
+      "x": 0.3,
       "birth": {
         "date": "1933",
         "place": null
@@ -1220,7 +1220,7 @@
           "@I152675561000@",
           "@I152675561001@"
         ],
-        "parentMidX": -2.0,
+        "parentMidX": -2.85,
         "parentGen": -1,
         "child": "@I152675561004@"
       },
@@ -1230,7 +1230,7 @@
           "@I152675561002@",
           "@I152675561003@"
         ],
-        "parentMidX": 1.0,
+        "parentMidX": 1.85,
         "parentGen": -1,
         "child": "@I152675561005@"
       },
@@ -1240,7 +1240,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -1.0,
+        "parentMidX": -2.15,
         "parentGen": 0,
         "child": "@I152503363502@"
       },
@@ -1250,7 +1250,7 @@
           "@I152675561004@",
           "@I152675561005@"
         ],
-        "parentMidX": -1.0,
+        "parentMidX": -2.15,
         "parentGen": 0,
         "child": "@I152675561006@"
       }
