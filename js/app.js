@@ -51,19 +51,17 @@
     const queue = [personId];
     while (queue.length > 0) {
       const currentId = queue.shift();
-      const person = personById(currentId);
-      if (!person || !person.famc) continue;
-      person.famc.forEach((famId) => {
-        const family = DATA.families[famId];
-        if (!family) return;
-        (family.husb ? [family.husb] : [])
-          .concat(family.wife ? [family.wife] : [])
-          .forEach((parentId) => {
+      // Find all parent-child relationships where currentId is the child
+      TREE.edges.parentChild.forEach((edge) => {
+        if (edge.child === currentId) {
+          // This edge shows the parents of currentId
+          edge.parents.forEach((parentId) => {
             if (!ancestors.has(parentId)) {
               ancestors.add(parentId);
               queue.push(parentId);
             }
           });
+        }
       });
     }
     return ancestors;
